@@ -1,12 +1,16 @@
-import Header from "@/components/Header";
+import CharacterList from "@/components/CharacterList";
 import Head from "next/head";
 import { getCharacters } from "rickmortyapi";
 
 export default function Home({ characterData }) {
   let cardsMarkup =
-    characterData?.status === 200
-      ? "Card data available"
-      : "Card data not available";
+    characterData?.status === 200 ? (
+      <CharacterList charactersData={characterData?.data?.results} />
+    ) : (
+      <div className="flex flex-1">
+        <p className="m-auto">Data loading...</p>
+      </div>
+    );
 
   return (
     <div className="">
