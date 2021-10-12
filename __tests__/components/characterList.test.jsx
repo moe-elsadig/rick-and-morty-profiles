@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import CharacterList from '../../components/CharacterList'
 
 const charactersData =  [{
-  id: 1,
+  id: 0,
   name: 'Rick Sanchez',
   status: 'Alive',
   species: 'Human',
@@ -26,7 +26,7 @@ const charactersData =  [{
   url: 'https://rickandmortyapi.com/api/character/1',
   created: '2017-11-04T18:48:46.250Z'
 },{
-  id: 1,
+  id: 2,
   name: 'Rick Sanchez',
   status: 'Alive',
   species: 'Human',
@@ -49,7 +49,7 @@ const charactersData =  [{
   url: 'https://rickandmortyapi.com/api/character/1',
   created: '2017-11-04T18:48:46.250Z'
 },{
-  id: 1,
+  id: 3,
   name: 'Rick Sanchez',
   status: 'Alive',
   species: 'Human',
@@ -72,7 +72,7 @@ const charactersData =  [{
   url: 'https://rickandmortyapi.com/api/character/1',
   created: '2017-11-04T18:48:46.250Z'
 },{
-  id: 1,
+  id: 4,
   name: 'Rick Sanchez',
   status: 'Alive',
   species: 'Human',
@@ -95,7 +95,7 @@ const charactersData =  [{
   url: 'https://rickandmortyapi.com/api/character/1',
   created: '2017-11-04T18:48:46.250Z'
 },{
-  id: 1,
+  id: 5,
   name: 'Rick Sanchez',
   status: 'Alive',
   species: 'Human',
@@ -128,8 +128,8 @@ describe('Component', () => {
 
   it('CharacterList renders cards with valid data', ()=>{
     render(<CharacterList charactersData={charactersData}/>)
-    const profileCardEl0 = screen.getByTestId('profile-card-info-0')
-    const profileCardEl2 = screen.getByTestId('profile-card-info-2')
+    const profileCardEl0 = screen.getByTestId('profile-card-image-0')
+    const profileCardEl2 = screen.getByTestId('profile-card-image-2')
     expect(profileCardEl0).toBeTruthy()
     expect(profileCardEl2).toBeTruthy()
   })
