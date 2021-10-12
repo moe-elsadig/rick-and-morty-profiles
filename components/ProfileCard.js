@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 function ProfileCard({ characterData, index }) {
-  console.log(characterData, index);
   let cardMarkup = characterData ? (
     <ul className="text-sm">
       <li>{characterData.id}</li>
@@ -38,7 +37,7 @@ function ProfileCard({ characterData, index }) {
   return (
     <div
       data-testid="profile-card-component"
-      className="flex flex-col shadow-md rounded-md cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out min-h-[300px] min-w-[200px]"
+      className="flex flex-col shadow-md rounded-md cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out min-h-[300px] w-52"
     >
       <div data-testid="profile-card-image">{imageMarkup}</div>
       <div data-testid="profile-card-info" className="p-2">
