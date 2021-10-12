@@ -29,6 +29,7 @@
     "jsdom": "^16.7.0",
     "postcss": "^8.3.9",
     "react-test-renderer": "^17.0.2",
+    "rickmortyapi": "^1.0.0",
     "tailwindcss": "^2.2.16"
   }
 }
