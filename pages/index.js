@@ -1,4 +1,5 @@
 import CharacterList from "@/components/CharacterList";
+import Header from "@/components/Header";
 import Head from "next/head";
 import { getCharacters } from "rickmortyapi";
 
@@ -22,6 +23,7 @@ export default function Home({ characterData }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <main className="flex min-h-screen">{cardsMarkup}</main>
     </div>
   );
