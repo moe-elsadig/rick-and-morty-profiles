@@ -37,7 +37,7 @@ function ProfileCard({ characterData, index }) {
   return (
     <div
       data-testid="profile-card-component"
-      className="flex flex-col shadow-md rounded-md cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out min-h-[300px] w-52"
+      className="flex flex-col shadow-md rounded-md cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out min-h-[300px] w-52 bg-white text-black dark:bg-gray-800 dark:text-green-100"
     >
       <div data-testid="profile-card-image">{imageMarkup}</div>
       <div data-testid="profile-card-info" className="p-2">
