@@ -3,9 +3,10 @@ import { getCharacters } from "rickmortyapi";
 
 export default function Home({ characterData }) {
   let cardsMarkup =
-    characterData.status === 200
+    characterData?.status === 200
       ? "Card data available"
       : "Card data not available";
+
   return (
     <div className="">
       <Head>
