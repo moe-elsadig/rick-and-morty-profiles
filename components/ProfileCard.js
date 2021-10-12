@@ -12,7 +12,7 @@ function ProfileCard({ characterData, index }) {
       <li>{characterData.gender}</li>
       <li>{characterData.origin?.name}</li>
       <li>{characterData.location?.name}</li>
-      <li>{characterData.episodes?.length}</li>
+      <li>Appearances: {characterData.episode?.length}</li>
       <li>{characterData.created}</li>
     </ul>
   ) : (
