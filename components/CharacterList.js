@@ -16,7 +16,7 @@ function CharacterList({ charactersData }) {
   return (
     <div
       data-testid="character-list-component"
-      className="p-4 flex flex-row flex-wrap items-center justify-evenly space-x-4 space-y-4 bg-[#c7f35c] dark:bg-[#314e1c]"
+      className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-gray-100 dark:bg-gray-900"
     >
       {cardsMarkup}
     </div>
