@@ -15,7 +15,7 @@ function CharacterProfile({ data }) {
   return (
     <div className="">
       <Head>
-        <title>{data?.name}'s Profile</title>
+        <title>{data?.name}&#39;s Profile</title>
         <meta
           name="description"
           content={`${data?.id}-${data?.name}-Rick & Morty Encyclopedia powere by the rickandmortyapi.com API`}
