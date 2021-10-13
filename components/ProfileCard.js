@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   GiDeadHead,
   GiHalfDead,
@@ -8,6 +9,7 @@ import {
   GiHearts,
   GiSkullCrack,
   GiPortal,
+  GiSpaceship,
 } from "react-icons/gi";
 import { BiPlanet } from "react-icons/bi";
 
@@ -18,11 +20,20 @@ function ProfileCard({ characterData, index }) {
         {characterData.name}
       </h2>
       <div className="flex items-center text-sm font-medium">
-        <BiPlanet className="text-green-400 dark:text-green-500" />
+        <BiPlanet className="text-blue-400 dark:text-blue-500" />
         <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
-          {characterData.location?.name}
+          {characterData.origin?.name}
         </h2>
       </div>
+      {characterData.location?.name !== characterData.origin?.name && (
+        <div className="flex items-center text-sm font-medium">
+          <GiPortal className="text-[#5ee021] dark:text-[#61ff18]" />
+          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+            {characterData.location?.name}
+          </h2>
+        </div>
+      )}
+
       <div className="flex items-center text-sm font-medium">
         {characterData.status === "Alive" && (
           <GiCyborgFace className="text-green-400 dark:text-green-500" />
@@ -33,7 +44,7 @@ function ProfileCard({ characterData, index }) {
         {characterData.status === "unknown" && (
           <GiHalfDead className="text-gray-700 dark:text-gray-300" />
         )}
-        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44 ">
           {characterData.status}
         </h2>
       </div>
@@ -47,26 +58,6 @@ function ProfileCard({ characterData, index }) {
   ) : (
     <p className="m-auto text-gray-700 dark:text-gray-300">Loading info...</p>
   );
-
-  //   <ul className="text-sm">
-  //   <li>{characterData.id}</li>
-  //   <li>{characterData.name}</li>
-  //   <li>{characterData.status}</li>
-  //   <li>{characterData.species}</li>
-  //   <li>{characterData.type}</li>
-  //   <li>{characterData.gender}</li>
-  //   <li>{characterData.origin?.name}</li>
-  //   <li>{characterData.location?.name}</li>
-  //   <li>Appearances: {characterData.episode?.length}</li>
-  //   <li>{characterData.created}</li>
-  // </ul>
-
-  //   <div
-  //   data-testid="character-list-component"
-  //   className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-  // >
-  //   {cardsMarkup}
-  // </div>
 
   let imageMarkup = characterData?.image ? (
     <div className="relative h-32 w-32 flex-shrink-0 ">
@@ -88,15 +79,20 @@ function ProfileCard({ characterData, index }) {
   );
 
   return (
-    <div
-      data-testid="profile-card-component"
-      className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
-    >
-      {/* left */}
-      {imageMarkup}
-      {/* right */}
-      {infoMarkup}
-    </div>
+    <Link href={`/character/${characterData?.id}`}>
+      <div
+        data-testid="profile-card-component"
+        className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
+      >
+        {/* left */}
+        {imageMarkup}
+        {/* right */}
+        {infoMarkup}
+        <label className="absolute bottom-0 right-0 p-2 rounded-br-xl text-white dark:text-gray-800 hover:text-green-300 dark:hover:text-green-700 cursor-pointer">
+          ...more
+        </label>
+      </div>
+    </Link>
   );
 }
 
