@@ -1,59 +1,94 @@
 import React from "react";
 import Image from "next/image";
-import { GiDeadHead, GiHalfDead } from "react-icons/gi";
+import {
+  GiDeadHead,
+  GiHalfDead,
+  GiCyborgFace,
+  GiHeartBeats,
+  GiHearts,
+  GiSkullCrack,
+  GiPortal,
+} from "react-icons/gi";
+import { BiPlanet } from "react-icons/bi";
 
 function ProfileCard({ characterData, index }) {
-  let cardMarkup = characterData ? (
-    <ul className="text-sm">
-      <li>{characterData.id}</li>
-      <li>{characterData.name}</li>
-      <li>{characterData.status}</li>
-      <li>{characterData.species}</li>
-      <li>{characterData.type}</li>
-      <li>{characterData.gender}</li>
-      <li>{characterData.origin?.name}</li>
-      <li>{characterData.location?.name}</li>
-      <li>Appearances: {characterData.episode?.length}</li>
-      <li>{characterData.created}</li>
-    </ul>
+  let infoMarkup = characterData ? (
+    <div className="" data-testid="profile-card-info">
+      <h2 className="font-semibold truncate w-44">{characterData.name}</h2>
+      <div className="flex items-center text-sm font-medium">
+        <BiPlanet className="text-green-400" />
+        <h2 className="text-gray-500 truncate w-44">
+          {characterData.location?.name}
+        </h2>
+      </div>
+      <div className="flex items-center text-sm font-medium">
+        {characterData.status === "Alive" && (
+          <GiCyborgFace className="text-green-400" />
+        )}
+        {characterData.status === "Dead" && (
+          <GiDeadHead className="text-red-400" />
+        )}
+        {characterData.status === "unknown" && (
+          <GiHalfDead className="text-gray-400" />
+        )}
+        <h2 className="text-gray-500 truncate w-44">{characterData.status}</h2>
+      </div>
+
+      <div className="flex items-center text-sm font-medium">
+        <h2 className="text-gray-500 truncate w-44">
+          {characterData.type ? characterData.type : characterData.species}
+        </h2>
+      </div>
+    </div>
   ) : (
     <p className="m-auto">Loading info...</p>
   );
 
+  //   <ul className="text-sm">
+  //   <li>{characterData.id}</li>
+  //   <li>{characterData.name}</li>
+  //   <li>{characterData.status}</li>
+  //   <li>{characterData.species}</li>
+  //   <li>{characterData.type}</li>
+  //   <li>{characterData.gender}</li>
+  //   <li>{characterData.origin?.name}</li>
+  //   <li>{characterData.location?.name}</li>
+  //   <li>Appearances: {characterData.episode?.length}</li>
+  //   <li>{characterData.created}</li>
+  // </ul>
+
+  //   <div
+  //   data-testid="character-list-component"
+  //   className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  // >
+  //   {cardsMarkup}
+  // </div>
+
   let imageMarkup = characterData?.image ? (
-    <div className="flex w-52 h-52 relative flex-shrink-0 shadow-sm m-auto ">
+    <div className="relative h-32 w-32 flex-shrink-0 ">
       <Image
         data-testid={`profile-card-image-${index}`}
         src={characterData.image}
         layout="fill"
-        objectFit="contain"
-        className=""
+        objectFit="cover"
+        className="rounded-lg"
       />
-      {characterData?.status === "Dead" && (
-        <div className="absolute h-full w-full hover:opacity-10">
-          <div className="absolute flex bg-gray-600 opacity-50 h-full w-full items-center"></div>
-          <div className="absolute flex h-full w-full items-center">
-            <GiDeadHead className="m-auto text-7xl cursor-pointer text-blue-300 flex items-center" />
-          </div>
-        </div>
-      )}
     </div>
   ) : (
     <p className="m-auto" data-testid={`profile-card-image-loading`}>
       Loading image...
     </p>
   );
+
   return (
     <div
       data-testid="profile-card-component"
-      className="flex flex-col shadow-md rounded-md cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out min-h-[300px] w-52 bg-white text-black dark:bg-gray-800 dark:text-green-100"
+      className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out shadow-sm"
     >
-      <div data-testid="profile-card-image" className="">
-        {imageMarkup}
-      </div>
-      <div data-testid="profile-card-info" className="p-2">
-        {cardMarkup}
-      </div>
+      {/* left */}
+      {imageMarkup}
+      {/* right */}
+      {infoMarkup}
     </div>
   );
 }
