@@ -34,17 +34,17 @@ describe('Component', () => {
     expect(profileCard).toBeTruthy()
   })
 
-  it('ProfileCard image area renders correctly', () => {
-    render(<ProfileCard />)
-    const imageArea = screen.getByTestId('profile-card-image')
-    expect(imageArea).toBeTruthy()
-  })
+  // it('ProfileCard image area renders correctly', () => {
+  //   render(<ProfileCard />)
+  //   const imageArea = screen.getByTestId('profile-card-image')
+  //   expect(imageArea).toBeTruthy()
+  // })
 
-  it('ProfileCard information area renders correctly', () => {
-    render(<ProfileCard />)
-    const infoArea = screen.getByTestId('profile-card-info')
-    expect(infoArea).toBeTruthy()
-  })
+  // it('ProfileCard information area renders correctly', () => {
+  //   render(<ProfileCard />)
+  //   const infoArea = screen.getByTestId('profile-card-info')
+  //   expect(infoArea).toBeTruthy()
+  // })
 
   it.todo('ProfileCard clickable area renders correctly')
 
