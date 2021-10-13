@@ -1,5 +1,6 @@
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
+import Paginator from "@/components/Paginator";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { getCharacters } from "rickmortyapi";
@@ -8,8 +9,7 @@ const startingPage = 1;
 const defaultEndpoint = "https://rickandmortyapi.com/api/character/?page=1";
 
 export default function Home({ data }) {
-  console.log(data);
-
+  const [theme, setTheme] = useState(false);
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
   const [page, setPage] = useState({
@@ -75,8 +75,12 @@ export default function Home({ data }) {
     </div>
   );
 
+  const changeTheme = () => {
+    setTheme(!theme);
+  };
+
   return (
-    <div className="">
+    <div className={`${theme && "dark"}`}>
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta
@@ -85,13 +89,16 @@ export default function Home({ data }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main className="flex flex-col min-h-screen">
+      <Header changeTheme={changeTheme} />
+      <main className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
         {cardsMarkup}
         <div className="m-auto">
-          <button onClick={prevPage}>Back</button>
-          {"  "}
-          <button onClick={nextPage}>Next</button>
+          <Paginator
+            nextFn={nextPage}
+            prevFn={prevPage}
+            currentPage={currentPageNo}
+            maxPage={page.pages}
+          />
         </div>
       </main>
     </div>
