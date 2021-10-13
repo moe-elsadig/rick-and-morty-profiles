@@ -14,7 +14,7 @@ export default function Home({ characterData }) {
     );
 
   return (
-    <div className="dark">
+    <div className="">
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta
