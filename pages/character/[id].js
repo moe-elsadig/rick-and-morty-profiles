@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import { getCharacter } from "rickmortyapi";
 import ProfileCard from "@/components/ProfileCard";
 import Header from "@/components/Header";
 
@@ -43,13 +42,10 @@ export default CharacterProfile;
 
 export async function getServerSideProps({ query }) {
   const { id } = query;
-  // use the installed API
-  const res = await getCharacter(Number(id));
-  const data = res.data;
 
   // use the online REST API
-  // const defaultEndpoint = `https://rickandmortyapi.com/api/character/${id}`;
-  // const data = await (await fetch(defaultEndpoint)).json();
+  const characterEndpoint = `https://rickandmortyapi.com/api/character/${id}`;
+  const data = await (await fetch(characterEndpoint)).json();
 
   return {
     props: { data },

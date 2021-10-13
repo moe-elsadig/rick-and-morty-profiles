@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { getCharacters } from "rickmortyapi";
 
 const startingPage = 1;
 const defaultEndpoint = "https://rickandmortyapi.com/api/character/?page=1";
@@ -21,20 +20,9 @@ export default function Home({ data }) {
   const { currentPage, currentPageNo } = page;
 
   useEffect(() => {
-    console.log("effect:", currentPage, currentPageNo);
-    // if (currentPageNo === startingPage) return;
-    // if (currentPage === defaultEndpoint) return;
-
     async function getNewData() {
-      console.log("request new data");
-      // use the installed API
-      const res = await getCharacters({ page: currentPageNo });
-      const data = res.data;
-
       // use the online REST API
-      // const data = await (await fetch(currentPage)).json();
-
-      console.log("set new data", data);
+      const data = await (await fetch(currentPage)).json();
       setResults(data.results);
       setPage((prev) => {
         return {
@@ -106,12 +94,8 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  // use the installed API
-  const res = await getCharacters({ page: startingPage });
-  const data = res.data;
-
   // use the online REST API
-  // const data = await (await fetch(defaultEndpoint)).json();
+  const data = await (await fetch(defaultEndpoint)).json();
 
   return {
     props: { data },
