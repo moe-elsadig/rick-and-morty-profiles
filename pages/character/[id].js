@@ -1,9 +1,10 @@
 import React from "react";
 import Head from "next/head";
+import CharacterProfile from "@/components/CharacterProfile";
 import ProfileCard from "@/components/ProfileCard";
 import Header from "@/components/Header";
 
-function CharacterProfile({ data }) {
+function ProfilePage({ data }) {
   let dataMarkup = data
     ? Object.keys(data).map((key, index) => (
         <li key={index}>
@@ -25,6 +26,7 @@ function CharacterProfile({ data }) {
       <Header />
       <main className="flex flex-col h-screen items-center p-10">
         <button className="m-auto">Back</button>
+        <CharacterProfile characterData={data} />
         <div className="m-auto">
           {/* TODO: replace with a bigger profile card */}
           <ProfileCard characterData={data} index={0} />
@@ -38,7 +40,7 @@ function CharacterProfile({ data }) {
   );
 }
 
-export default CharacterProfile;
+export default ProfilePage;
 
 export async function getServerSideProps({ query }) {
   const { id } = query;
