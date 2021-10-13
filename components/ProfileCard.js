@@ -14,34 +14,38 @@ import { BiPlanet } from "react-icons/bi";
 function ProfileCard({ characterData, index }) {
   let infoMarkup = characterData ? (
     <div className="" data-testid="profile-card-info">
-      <h2 className="font-semibold truncate w-44">{characterData.name}</h2>
+      <h2 className="font-semibold truncate w-44 text-gray-900 dark:text-white">
+        {characterData.name}
+      </h2>
       <div className="flex items-center text-sm font-medium">
-        <BiPlanet className="text-green-400" />
-        <h2 className="text-gray-500 truncate w-44">
+        <BiPlanet className="text-green-400 dark:text-green-500" />
+        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
           {characterData.location?.name}
         </h2>
       </div>
       <div className="flex items-center text-sm font-medium">
         {characterData.status === "Alive" && (
-          <GiCyborgFace className="text-green-400" />
+          <GiCyborgFace className="text-green-400 dark:text-green-500" />
         )}
         {characterData.status === "Dead" && (
-          <GiDeadHead className="text-red-400" />
+          <GiDeadHead className="text-red-400 dark:text-red-500" />
         )}
         {characterData.status === "unknown" && (
-          <GiHalfDead className="text-gray-400" />
+          <GiHalfDead className="text-gray-700 dark:text-gray-300" />
         )}
-        <h2 className="text-gray-500 truncate w-44">{characterData.status}</h2>
+        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          {characterData.status}
+        </h2>
       </div>
 
       <div className="flex items-center text-sm font-medium">
-        <h2 className="text-gray-500 truncate w-44">
+        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
           {characterData.type ? characterData.type : characterData.species}
         </h2>
       </div>
     </div>
   ) : (
-    <p className="m-auto">Loading info...</p>
+    <p className="m-auto text-gray-700 dark:text-gray-300">Loading info...</p>
   );
 
   //   <ul className="text-sm">
@@ -75,7 +79,10 @@ function ProfileCard({ characterData, index }) {
       />
     </div>
   ) : (
-    <p className="m-auto" data-testid={`profile-card-image-loading`}>
+    <p
+      className="m-auto text-gray-700 dark:text-gray-300"
+      data-testid={`profile-card-image-loading`}
+    >
       Loading image...
     </p>
   );
@@ -83,7 +90,7 @@ function ProfileCard({ characterData, index }) {
   return (
     <div
       data-testid="profile-card-component"
-      className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out shadow-sm"
+      className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
     >
       {/* left */}
       {imageMarkup}
