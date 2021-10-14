@@ -5,22 +5,8 @@ import ProfileCard from "@/components/ProfileCard";
 import Header from "@/components/Header";
 
 function ProfilePage({ data }) {
-  const [theme, setTheme] = useState(true);
-
-  useEffect(() => {
-    let localTheme = localStorage.getItem("theme");
-    if (localTheme && localTheme === "false") {
-      setTheme(false);
-    }
-  }, []);
-
-  const changeTheme = () => {
-    localStorage.setItem("theme", !theme);
-    setTheme(!theme);
-  };
-
   return (
-    <div className={`${theme && "dark"} bg-gray-500`}>
+    <div className={`bg-gray-500`}>
       <Head>
         <title>{data?.name}&#39;s Profile</title>
         <meta
@@ -29,7 +15,7 @@ function ProfilePage({ data }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header changeTheme={changeTheme} />
+      <Header />
       <main className="flex flex-col min-h-screen h-full items-center p-10 bg-gray-100 dark:bg-gray-900">
         <CharacterProfile characterData={data} />
       </main>

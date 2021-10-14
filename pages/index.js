@@ -12,7 +12,6 @@ const locationsEndpoint = "https://rickandmortyapi.com/api/location/?page=1";
 const episodesEndpoint = "https://rickandmortyapi.com/api/episode/?page=1";
 
 export default function Home({ data }) {
-  const [theme, setTheme] = useState(true);
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
   const [section, setSection] = useState("characters");
@@ -91,18 +90,6 @@ export default function Home({ data }) {
     resetData(newSection);
   };
 
-  useEffect(() => {
-    let localTheme = localStorage.getItem("theme");
-    if (localTheme && localTheme === "false") {
-      setTheme(false);
-    }
-  }, []);
-
-  const changeTheme = () => {
-    localStorage.setItem("theme", !theme);
-    setTheme(!theme);
-  };
-
   let cardsMarkup =
     results && section === "characters" ? (
       <CharacterList charactersData={results} />
@@ -119,7 +106,7 @@ export default function Home({ data }) {
     );
 
   return (
-    <div className={`${theme && "dark"} bg-gray-500`}>
+    <div className={`bg-gray-500`}>
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta
@@ -128,8 +115,8 @@ export default function Home({ data }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header changeTheme={changeTheme} />
-      <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto px-2 items-start">
+      <Header />
+      <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto items-start">
         <SiteSections
           preSelectedSection={section}
           changeSection={changeSection}
