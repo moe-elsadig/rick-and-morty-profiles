@@ -16,12 +16,12 @@ import { BiPlanet } from "react-icons/bi";
 function CharacterProfile({ characterData }) {
   let infoMarkup = characterData ? (
     <div
-      className="flex flex-grow bg-white dark:bg-gray-800 rounded-xl shadow-xl h-72 p-5"
+      className="flex flex-grow bg-white dark:bg-gray-800 rounded-xl shadow-xl min-h-72 p-5"
       data-testid="profile-card-info"
     >
       <ul>
         <li>
-          <h2 className="text-xl font-bold truncate max-w-64 sm:max-w-full text-gray-900 dark:text-white">
+          <h2 className="text-xl font-bold  sm:max-w-full text-gray-900 dark:text-white">
             {characterData.name}
           </h2>
         </li>
@@ -31,7 +31,7 @@ function CharacterProfile({ characterData }) {
             <label className="text-gray-400 dark:text-gray-500 pr-4">
               Species/Type:
             </label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300  sm:max-w-full">
               {characterData.species}
               {characterData.type && `/${characterData.type}`}
             </h2>
@@ -43,34 +43,10 @@ function CharacterProfile({ characterData }) {
             <label className="text-gray-400 dark:text-gray-500 pr-4">
               Gender:
             </label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300  sm:max-w-full">
               {characterData.gender}
             </h2>
           </div>
-        </li>
-        <li>
-          <div className="flex items-center text-base font-medium">
-            <label className="text-gray-400 dark:text-gray-500 pr-4">
-              Origin:
-            </label>
-            <BiPlanet className="text-blue-400 dark:text-blue-500" />
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-              {characterData.origin?.name}
-            </h2>
-          </div>
-        </li>
-        <li>
-          {characterData.location?.name !== characterData.origin?.name && (
-            <div className="flex items-center text-base font-medium">
-              <label className="text-gray-400 dark:text-gray-500 pr-4">
-                Location:
-              </label>
-              <GiPortal className="text-[#5ee021] dark:text-[#61ff18]" />
-              <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-                {characterData.location?.name}
-              </h2>
-            </div>
-          )}
         </li>
         <li>
           <div className="flex items-center text-base font-medium">
@@ -86,18 +62,60 @@ function CharacterProfile({ characterData }) {
             {characterData.status === "unknown" && (
               <GiHalfDead className="text-gray-700 dark:text-gray-300" />
             )}
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full ">
+            <h2 className="text-gray-700 dark:text-gray-300  sm:max-w-full ">
               {characterData.status}
             </h2>
           </div>
         </li>
+        <li>
+          <div className="flex items-center text-base font-medium">
+            <label className="text-gray-400 dark:text-gray-500 pr-4">
+              Origin:
+            </label>
+            <Link
+              href={characterData.origin?.url.replace(
+                "https://rickandmortyapi.com/api",
+                ""
+              )}
+            >
+              <button
+                className={`bg-yellow-300 dark:bg-yellow-700 px-4 my-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-medium text-black dark:text-white`}
+              >
+                <p className="text-gray-700 dark:text-gray-300  sm:max-w-full text-wrap">
+                  {characterData.origin?.name}
+                </p>
+              </button>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className="flex items-center text-base font-medium">
+            <label className="text-gray-400 dark:text-gray-500 pr-4">
+              Location:
+            </label>
+            <Link
+              href={characterData.location?.url.replace(
+                "https://rickandmortyapi.com/api",
+                ""
+              )}
+            >
+              <button
+                className={`bg-yellow-300 dark:bg-yellow-700 px-4 my-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-medium text-black dark:text-white`}
+              >
+                <p className="text-gray-700 dark:text-gray-300  sm:max-w-full text-wrap">
+                  {characterData.location?.name}
+                </p>
+              </button>
+            </Link>
+          </div>
+        </li>
 
-        <div className="w-full h-0 py-4 mb-4 border-b border-gray-200 dark:border-gray-700" />
+        <div className="w-full h-0 pt-4 mb-4 border-b border-gray-200 dark:border-gray-700" />
 
         <li>
           <div className="flex items-center text-base font-medium">
             <label className="text-gray-400 dark:text-gray-500 pr-4">ID:</label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300  sm:max-w-full">
               {characterData.id}
             </h2>
           </div>
@@ -108,7 +126,7 @@ function CharacterProfile({ characterData }) {
             <label className="text-gray-400 dark:text-gray-500 pr-4">
               Appearances:
             </label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300  sm:max-w-full">
               {characterData.episode.length}
             </h2>
           </div>
@@ -145,8 +163,7 @@ function CharacterProfile({ characterData }) {
           key={index}
         >
           <button
-            key={index}
-            className={`w-32 bg-yellow-400 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white`}
+            className={`w-32 bg-yellow-300 dark:bg-yellow-700 px-4 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white`}
           >
             <p className="">
               Episode{" "}
