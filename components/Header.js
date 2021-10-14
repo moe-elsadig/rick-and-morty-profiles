@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdLightMode, MdNightlight } from "react-icons/md";
 
 function Header({ changeTheme }) {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
+
+  useEffect(() => {
+    let localTheme = localStorage.getItem("theme");
+    if (localTheme && localTheme === "false") {
+      setTheme(false);
+    }
+  }, []);
 
   return (
     <div

@@ -8,7 +8,7 @@ const startingPage = 1;
 const defaultEndpoint = "https://rickandmortyapi.com/api/character/?page=1";
 
 export default function Home({ data }) {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
   const [page, setPage] = useState({
@@ -63,12 +63,20 @@ export default function Home({ data }) {
     </div>
   );
 
+  useEffect(() => {
+    let localTheme = localStorage.getItem("theme");
+    if (localTheme && localTheme === "false") {
+      setTheme(false);
+    }
+  }, []);
+
   const changeTheme = () => {
+    localStorage.setItem("theme", !theme);
     setTheme(!theme);
   };
 
   return (
-    <div className={`${theme && "dark"}`}>
+    <div className={`${theme && "dark"} bg-gray-500`}>
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta
