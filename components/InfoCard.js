@@ -13,7 +13,7 @@ import {
 } from "react-icons/gi";
 import { BiPlanet, BiMoviePlay } from "react-icons/bi";
 
-function ProfileCard({ data, type, index }) {
+function InfoCard({ data, type, index }) {
   let infoMarkup =
     data && type === "locations" ? (
       <div className="" data-testid="profile-card-info">
@@ -61,27 +61,10 @@ function ProfileCard({ data, type, index }) {
       </div>
     );
 
-  let imageMarkup = data?.image ? (
-    <div className="relative h-32 w-32 flex-shrink-0 ">
-      <Image
-        data-testid={`profile-card-image-${index}`}
-        src={data.image}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-lg"
-      />
-    </div>
-  ) : (
-    <p
-      className="m-auto text-gray-700 dark:text-gray-300"
-      data-testid={`profile-card-image-loading`}
-    >
-      Loading image...
-    </p>
-  );
-
   return (
-    <Link href={`/character/${data?.id}`}>
+    <Link
+      href={`/${type === "locations" ? "location" : "episode"}/${data?.id}`}
+    >
       <div
         data-testid="infoCard-component"
         className="flex items-center m-2 mt-5 p-4 space-x-4 rounded-xl cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
@@ -95,4 +78,4 @@ function ProfileCard({ data, type, index }) {
   );
 }
 
-export default ProfileCard;
+export default InfoCard;
