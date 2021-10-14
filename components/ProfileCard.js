@@ -67,6 +67,7 @@ function ProfileCard({ characterData, index }) {
         layout="fill"
         objectFit="cover"
         className="rounded-lg"
+        alt={`${characterData.name} profile image`}
       />
     </div>
   ) : (

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InfoCard from "./InfoCard";
 
 function CardList({ dataList, type = "locations" }) {
-  let cardsMarkup = dataList ? (
-    dataList.map((data, index) => (
+  const [data, setData] = useState(dataList || []);
+
+  useEffect(() => {
+    setData(dataList);
+  }, dataList);
+
+  let cardsMarkup = data ? (
+    data.map((data, index) => (
       <InfoCard data={data} type={type} index={index} key={data.id} />
     ))
   ) : (
@@ -13,6 +19,7 @@ function CardList({ dataList, type = "locations" }) {
       </p>
     </div>
   );
+
   return (
     <div
       data-testid="cardList-component"
