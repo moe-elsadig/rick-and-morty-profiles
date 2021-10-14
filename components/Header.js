@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdLightMode, MdNightlight } from "react-icons/md";
 
-function Header({ changeTheme }) {
+function Header({}) {
   const [theme, setTheme] = useState(false);
+
+  useEffect(() => {
+    let localTheme = localStorage.getItem("theme");
+    if (localTheme && localTheme === "true") {
+      setTheme(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  const changeTheme = () => {
+    localStorage.setItem("theme", !theme);
+    setTheme(!theme);
+    if (!theme) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  };
 
   return (
     <div

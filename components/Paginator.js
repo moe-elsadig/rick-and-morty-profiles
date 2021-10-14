@@ -9,7 +9,7 @@ function Paginator({ nextFn, prevFn, currentPage, maxPage }) {
       <button
         onClick={prevFn}
         disabled={currentPage === 1 ? true : false}
-        className={`bg-yellow-200 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white ${
+        className={`bg-yellow-300 dark:bg-yellow-600 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white ${
           currentPage === 1 &&
           "bg-gray-200 text-gray-400 dark:bg-gray-700 dark:text-gray-500 shadow-none cursor-not-allowed"
         }`}
