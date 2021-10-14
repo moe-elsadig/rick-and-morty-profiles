@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import CharacterProfile from "@/components/CharacterProfile";
 import ProfileCard from "@/components/ProfileCard";
 import Header from "@/components/Header";
 
 function ProfilePage({ data }) {
-  let dataMarkup = data
-    ? Object.keys(data).map((key, index) => (
-        <li key={index}>
-          {key}: {JSON.stringify(data[key])}
-        </li>
-      ))
-    : null;
+  const [theme, setTheme] = useState(false);
+
+  const changeTheme = () => {
+    setTheme(!theme);
+  };
 
   return (
-    <div className="">
+    <div className={`${theme && "dark"} `}>
       <Head>
         <title>{data?.name}&#39;s Profile</title>
         <meta
@@ -23,18 +21,9 @@ function ProfilePage({ data }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main className="flex flex-col h-screen items-center p-10">
-        <button className="m-auto">Back</button>
+      <Header changeTheme={changeTheme} />
+      <main className="flex flex-col min-h-screen h-full items-center p-10 bg-gray-100 dark:bg-gray-900">
         <CharacterProfile characterData={data} />
-        <div className="m-auto">
-          {/* TODO: replace with a bigger profile card */}
-          <ProfileCard characterData={data} index={0} />
-          <ul>
-            <li>boom</li>
-            {dataMarkup}
-          </ul>
-        </div>
       </main>
     </div>
   );

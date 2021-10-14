@@ -78,7 +78,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header changeTheme={changeTheme} />
-      <main className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+      <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900">
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
