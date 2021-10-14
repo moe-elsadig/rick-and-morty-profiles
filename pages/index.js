@@ -1,3 +1,4 @@
+import CardList from "@/components/CardList";
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
@@ -57,13 +58,18 @@ export default function Home({ data }) {
     });
   };
 
-  let cardsMarkup = results ? (
-    <CharacterList charactersData={results} />
-  ) : (
-    <div className="flex flex-1">
-      <p className="m-auto">Data loading...</p>
-    </div>
-  );
+  let cardsMarkup =
+    results && section === "characters" ? (
+      <CharacterList charactersData={results} />
+    ) : results && section === "locations" ? (
+      <CardList dataList={results} type="locations" />
+    ) : (
+      <div className="flex flex-row w-full items-center justify-center">
+        <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
+          loading...
+        </p>
+      </div>
+    );
 
   useEffect(() => {
     let localTheme = localStorage.getItem("theme");
@@ -89,7 +95,7 @@ export default function Home({ data }) {
       </Head>
       <Header changeTheme={changeTheme} />
       <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900">
-        <SiteSections preSelectedSection={section} />
+        <SiteSections preSelectedSection={section} changeSection={setSection} />
         {cardsMarkup}
         <div className="m-auto">
           <Paginator

@@ -1,17 +1,17 @@
 import React from "react";
-import ProfileCard from "./ProfileCard";
+import InfoCard from "./InfoCard";
 
-function CardList({ charactersData }) {
-  let cardsMarkup = charactersData ? (
-    charactersData.map((characterData, index) => (
-      <ProfileCard
-        characterData={characterData}
-        index={index}
-        key={characterData?.id}
-      />
+function CardList({ dataList, type = "locations" }) {
+  let cardsMarkup = dataList ? (
+    dataList.map((data, index) => (
+      <InfoCard data={data} type={type} index={index} key={data.id} />
     ))
   ) : (
-    <p data-testid="character-list-loading">Loading characters...</p>
+    <div className="flex flex-row w-full items-center justify-center">
+      <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
+        loading...
+      </p>
+    </div>
   );
   return (
     <div
