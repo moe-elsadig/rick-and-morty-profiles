@@ -129,7 +129,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header changeTheme={changeTheme} />
-      <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto px-2">
+      <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto px-2 items-start">
         <SiteSections
           preSelectedSection={section}
           changeSection={changeSection}
