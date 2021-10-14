@@ -11,10 +11,10 @@ import {
   GiPortal,
   GiSpaceship,
 } from "react-icons/gi";
-import { BiPlanet } from "react-icons/bi";
+import { BiPlanet, BiMoviePlay } from "react-icons/bi";
 
-function EpisodeProfile({ locationData }) {
-  let infoMarkup = locationData ? (
+function EpisodeProfile({ episodeData }) {
+  let infoMarkup = episodeData ? (
     <div
       className="flex flex-grow bg-white dark:bg-gray-800 rounded-xl shadow-xl h-72 p-5 items-center"
       data-testid="profile-card-info"
@@ -22,8 +22,8 @@ function EpisodeProfile({ locationData }) {
       <ul>
         <li>
           <h2 className="text-xl font-bold truncate max-w-64 sm:max-w-full text-gray-900 dark:text-white">
-            <BiPlanet className="text-2xl text-blue-400 dark:text-blue-500" />
-            {locationData.name}
+            <BiMoviePlay className="text-2xl text-blue-400 dark:text-blue-500" />
+            {episodeData.name}
           </h2>
         </li>
 
@@ -32,21 +32,20 @@ function EpisodeProfile({ locationData }) {
         <li>
           <div className="flex items-center text-base font-medium">
             <label className="text-gray-400 dark:text-gray-500 pr-4">
-              Type:
+              Aired:
             </label>
             <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-              {locationData.type}
+              {episodeData.air_date}
             </h2>
           </div>
         </li>
         <li>
           <div className="flex items-center text-base font-medium">
             <label className="text-gray-400 dark:text-gray-500 pr-4">
-              Dimension:
+              Episode:
             </label>
-            <GiPortal className="text-blue-400 dark:text-blue-500" />
             <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-              {locationData.dimension}
+              {episodeData.episode}
             </h2>
           </div>
         </li>
@@ -54,10 +53,10 @@ function EpisodeProfile({ locationData }) {
         <li>
           <div className="flex items-center text-base font-medium">
             <label className="text-gray-400 dark:text-gray-500 pr-4">
-              Residents:
+              Characters:
             </label>
             <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-              {locationData.residents.length}
+              {episodeData.characters.length}
             </h2>
           </div>
         </li>
@@ -67,7 +66,7 @@ function EpisodeProfile({ locationData }) {
           <div className="flex items-center text-base font-medium">
             <label className="text-gray-400 dark:text-gray-500 pr-4">ID:</label>
             <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
-              {locationData.id}
+              {episodeData.id}
             </h2>
           </div>
         </li>
@@ -81,18 +80,18 @@ function EpisodeProfile({ locationData }) {
     </div>
   );
 
-  let residentsMarkup = locationData ? (
-    locationData.residents.map((resident, index) => (
+  let charactersMarkup = episodeData ? (
+    episodeData.characters.map((character, index) => (
       <Link
-        href={resident.replace("https://rickandmortyapi.com/api", "")}
+        href={character.replace("https://rickandmortyapi.com/api", "")}
         key={index}
       >
         <button
           className={`w-32 bg-yellow-400 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white`}
         >
           <p className="">
-            Resident{" "}
-            {resident.split("https://rickandmortyapi.com/api/character/")}
+            Character{" "}
+            {character.split("https://rickandmortyapi.com/api/character/")}
           </p>
         </button>
       </Link>
@@ -115,10 +114,10 @@ function EpisodeProfile({ locationData }) {
       </div>
       <div className="pt-10 m-auto flex flex-col space-y-4">
         <h2 className="m-auto text-lg font-bold text-gray-400 dark:text-gray-500">
-          Residents
+          Characters
         </h2>
         <div className="flex flex-row flex-wrap gap-4 justify-center">
-          {residentsMarkup}
+          {charactersMarkup}
         </div>
       </div>
     </div>

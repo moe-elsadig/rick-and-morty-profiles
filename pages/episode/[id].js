@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import LocationProfile from "@/components/LocationProfile";
-import ProfileCard from "@/components/ProfileCard";
+import EpisodeProfile from "@/components/EpisodeProfile";
 import Header from "@/components/Header";
 
 function EpisodePage({ data }) {
