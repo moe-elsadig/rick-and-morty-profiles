@@ -1,6 +1,7 @@
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
+import SiteSections from "@/components/SiteSections";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
@@ -87,6 +88,7 @@ export default function Home({ data }) {
       </Head>
       <Header changeTheme={changeTheme} />
       <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900">
+        <SiteSections />
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
