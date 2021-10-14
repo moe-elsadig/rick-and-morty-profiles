@@ -60,7 +60,7 @@ function ProfileCard({ characterData, index }) {
   );
 
   let imageMarkup = characterData?.image ? (
-    <div className="relative h-32 w-32 flex-shrink-0 ">
+    <div className="relative h-32 w-32 flex-shrink-0 relative">
       <Image
         data-testid={`profile-card-image-${index}`}
         src={characterData.image}
