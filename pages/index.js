@@ -12,6 +12,7 @@ export default function Home({ data }) {
   const [theme, setTheme] = useState(true);
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
+  const [section, setSection] = useState("characters");
   const [page, setPage] = useState({
     ...info,
     currentPageNo: startingPage,
@@ -88,7 +89,7 @@ export default function Home({ data }) {
       </Head>
       <Header changeTheme={changeTheme} />
       <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900">
-        <SiteSections />
+        <SiteSections preSelectedSection={section} />
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
