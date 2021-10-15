@@ -88,8 +88,17 @@ function LocationProfile({ locationData }) {
         key={index}
       >
         <button
-          className={`w-32 bg-yellow-300 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white`}
+          className={`w-64 bg-yellow-300 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row flex-shrink items-center space-x-4`}
         >
+          <div className="h-10 w-10 border-blue-200 relative">
+            <Image
+              data-testid={`profile-card-image`}
+              src={resident.replace("character", "character/avatar") + ".jpeg"}
+              layout="fill"
+              objectFit="contain"
+              className="rounded-full"
+            />
+          </div>
           <p className="">
             Resident{" "}
             {resident.split("https://rickandmortyapi.com/api/character/")}
