@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 function SiteSections({ preSelectedSection, changeSection }) {
   const [section, setSection] = useState("characters");
@@ -11,6 +12,19 @@ function SiteSections({ preSelectedSection, changeSection }) {
   const selectSection = (newSection) => {
     setSection(newSection);
     changeSection(newSection);
+    let newPath =
+      newSection === "characters"
+        ? "character"
+        : newSection === "locations"
+        ? "location"
+        : "episode";
+
+    let currentState = {
+      ...window.history.state,
+      url: `/${newPath}`,
+      as: `/${newPath}`,
+    };
+    window.history.replaceState(currentState, "", `/${newPath}`);
   };
 
   return (
@@ -53,6 +67,17 @@ function SiteSections({ preSelectedSection, changeSection }) {
           Episodes
         </p>
       </button>
+      <div className="absolute right-10">
+        <div className="hidden md:inline-flex w-16 h-40 sm:h-40 md:h-52 relative">
+          <Image
+            src="/images/pleased-rick.gif"
+            layout="fill"
+            objectFit="contain"
+            className=""
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   );
 }

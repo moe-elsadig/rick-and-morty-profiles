@@ -1,16 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  GiDeadHead,
-  GiHalfDead,
-  GiCyborgFace,
-  GiHeartBeats,
-  GiHearts,
-  GiSkullCrack,
-  GiPortal,
-  GiSpaceship,
-} from "react-icons/gi";
+import { GiPortal } from "react-icons/gi";
 import { BiPlanet } from "react-icons/bi";
 
 function LocationProfile({ locationData }) {
@@ -86,6 +77,7 @@ function LocationProfile({ locationData }) {
       <Link
         href={resident.replace("https://rickandmortyapi.com/api", "")}
         key={index}
+        passHref
       >
         <button
           className={`w-64 bg-yellow-300 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row flex-shrink items-center space-x-4`}
@@ -97,6 +89,7 @@ function LocationProfile({ locationData }) {
               layout="fill"
               objectFit="contain"
               className="rounded-full"
+              alt=""
             />
           </div>
           <p className="">

@@ -1,19 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  GiDeadHead,
-  GiHalfDead,
-  GiCyborgFace,
-  GiHeartBeats,
-  GiHearts,
-  GiSkullCrack,
-  GiPortal,
-  GiSpaceship,
-} from "react-icons/gi";
+import { GiPortal } from "react-icons/gi";
 import { BiPlanet, BiMoviePlay } from "react-icons/bi";
 
-function InfoCard({ data, type, index }) {
+function InfoCard({ data, type }) {
   let infoMarkup =
     data && type === "locations" ? (
       <div className="" data-testid="profile-card-info">
@@ -63,13 +54,14 @@ function InfoCard({ data, type, index }) {
     data && data.residents ? (
       <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
         {data.residents.slice(0, 3).map((resident, index) => (
-          <div className="h-10 w-10 border-blue-200 relative">
+          <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
               src={resident.replace("character", "character/avatar") + ".jpeg"}
               layout="fill"
               objectFit="contain"
               className="rounded-full"
+              alt=""
             />
           </div>
         ))}
@@ -82,13 +74,14 @@ function InfoCard({ data, type, index }) {
     ) : data && data.characters ? (
       <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
         {data.characters.slice(0, 3).map((resident, index) => (
-          <div className="h-10 w-10 border-blue-200 relative">
+          <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
               src={resident.replace("character", "character/avatar") + ".jpeg"}
               layout="fill"
               objectFit="contain"
               className="rounded-full"
+              alt=""
             />
           </div>
         ))}
@@ -109,6 +102,7 @@ function InfoCard({ data, type, index }) {
   return (
     <Link
       href={`/${type === "locations" ? "location" : "episode"}/${data?.id}`}
+      passHref
     >
       <div
         data-testid="infoCard-component"
