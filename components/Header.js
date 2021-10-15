@@ -42,17 +42,19 @@ function Header({}) {
         </div>
       </Link>
 
-      <div className="flex-shrink pl-2">
-        <h1
-          className="hidden md:inline-flex md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 dark:text-gray-100"
-          data-testid="Header-heading"
-        >
-          The <span className="text-blue-400 dark:text-blue-500">Rick</span>{" "}
-          <span className="text-green-400 dark:text-green-500">&</span>{" "}
-          <span className="text-yellow-400 dark:text-yellow-500">Morty</span>{" "}
-          Encyclopedia
-        </h1>
-      </div>
+      <Link href="/" passHref>
+        <div className="flex-shrink pl-2 cursor-pointer">
+          <h1
+            className="hidden md:inline-flex md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 dark:text-gray-100"
+            data-testid="Header-heading"
+          >
+            The <span className="text-blue-400 dark:text-blue-500">Rick</span>{" "}
+            <span className="text-green-400 dark:text-green-500">&</span>{" "}
+            <span className="text-yellow-400 dark:text-yellow-500">Morty</span>{" "}
+            Encyclopedia
+          </h1>
+        </div>
+      </Link>
 
       <div className="flex-grow"></div>
 
