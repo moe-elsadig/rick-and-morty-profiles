@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 function SiteSections({ preSelectedSection, changeSection }) {
+  const router = useRouter();
   const [section, setSection] = useState("characters");
 
   useEffect(() => {
@@ -11,6 +13,13 @@ function SiteSections({ preSelectedSection, changeSection }) {
   const selectSection = (newSection) => {
     setSection(newSection);
     changeSection(newSection);
+    let newPath =
+      newSection === "characters"
+        ? "character"
+        : newSection === "locations"
+        ? "location"
+        : "episode";
+    window.history.pushState({ page: newPath }, "", `/${newPath}`);
   };
 
   return (
