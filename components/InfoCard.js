@@ -63,7 +63,7 @@ function InfoCard({ data, type, index }) {
     data && data.residents ? (
       <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
         {data.residents.slice(0, 3).map((resident, index) => (
-          <div className="h-10 w-10 border-blue-200 relative">
+          <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
               src={resident.replace("character", "character/avatar") + ".jpeg"}
@@ -82,7 +82,7 @@ function InfoCard({ data, type, index }) {
     ) : data && data.characters ? (
       <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
         {data.characters.slice(0, 3).map((resident, index) => (
-          <div className="h-10 w-10 border-blue-200 relative">
+          <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
               src={resident.replace("character", "character/avatar") + ".jpeg"}
