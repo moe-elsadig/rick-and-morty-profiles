@@ -5,14 +5,8 @@ import Header from '../../components/Header'
 describe('Component', () => {
   it('Header component renders correctly', () => {
     render(<Header />)
-
     const header = screen.getAllByTestId('Header-component')
-    const heading = screen.getAllByTestId('Header-heading')
-    const buttons = screen.getAllByTestId('Header-buttons-area')
-
     expect(header).toBeTruthy()
-    expect(heading).toBeTruthy()
-    expect(buttons).toBeTruthy()
   })
 
   it('Header component Heading renders correctly', () => {
