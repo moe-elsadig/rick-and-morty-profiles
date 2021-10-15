@@ -135,7 +135,7 @@ export default function Home({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps(context) {
   // use the online REST API
   const data = await (await fetch(locationsEndpoint)).json();
 
