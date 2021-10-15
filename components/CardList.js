@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InfoCard from "./InfoCard";
 
-function CardList({ dataList, type = "locations" }) {
+function CardList({ dataList = [], type = "locations" }) {
   const [data, setData] = useState(dataList || []);
 
   useEffect(() => {

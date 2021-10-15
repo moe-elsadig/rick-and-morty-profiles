@@ -1,17 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  GiDeadHead,
-  GiHalfDead,
-  GiCyborgFace,
-  GiHeartBeats,
-  GiHearts,
-  GiSkullCrack,
-  GiPortal,
-  GiSpaceship,
-} from "react-icons/gi";
-import { BiPlanet } from "react-icons/bi";
+import { GiDeadHead, GiHalfDead, GiCyborgFace } from "react-icons/gi";
 
 function CharacterProfile({ characterData }) {
   let infoMarkup = characterData ? (
@@ -77,6 +67,7 @@ function CharacterProfile({ characterData }) {
                 "https://rickandmortyapi.com/api",
                 ""
               )}
+              passHref
             >
               <button
                 className={`bg-yellow-300 dark:bg-yellow-700 px-4 my-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-medium text-black dark:text-white`}
@@ -98,6 +89,7 @@ function CharacterProfile({ characterData }) {
                 "https://rickandmortyapi.com/api",
                 ""
               )}
+              passHref
             >
               <button
                 className={`bg-yellow-300 dark:bg-yellow-700 px-4 my-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-medium text-black dark:text-white`}
@@ -141,6 +133,7 @@ function CharacterProfile({ characterData }) {
     <div className="m-auto relative p-5 h-72 w-72 flex-shrink-0 shadow-lg bg-transparent">
       <Image
         data-testid={`profile-card-image`}
+        alt=""
         src={characterData.image}
         layout="fill"
         objectFit="cover"
@@ -161,6 +154,7 @@ function CharacterProfile({ characterData }) {
         <Link
           href={episode.replace("https://rickandmortyapi.com/api", "")}
           key={index}
+          passHref
         >
           <button
             className={`w-32 bg-yellow-300 dark:bg-yellow-700 px-4 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white`}

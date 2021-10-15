@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 function SiteSections({ preSelectedSection, changeSection }) {
-  const router = useRouter();
   const [section, setSection] = useState("characters");
 
   useEffect(() => {

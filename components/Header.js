@@ -29,7 +29,7 @@ function Header({}) {
       data-testid="Header-component"
       className="sticky top-0 z-50 bg-white dark:bg-gray-800 h-16 flex flex-row w-screen shadow-md items-center"
     >
-      <Link href="/">
+      <Link href="/" passHref>
         <div className="flex w-14 h-14 relative flex-shrink-0 m-auto pl-16 cursor-pointer">
           <Image
             data-testid="Header-logo"
@@ -37,6 +37,7 @@ function Header({}) {
             layout="fill"
             objectFit="contain"
             className=""
+            alt="Site logo"
           />
         </div>
       </Link>
