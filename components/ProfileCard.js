@@ -1,16 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  GiDeadHead,
-  GiHalfDead,
-  GiCyborgFace,
-  GiHeartBeats,
-  GiHearts,
-  GiSkullCrack,
-  GiPortal,
-  GiSpaceship,
-} from "react-icons/gi";
+import { GiDeadHead, GiHalfDead, GiCyborgFace, GiPortal } from "react-icons/gi";
 import { BiPlanet } from "react-icons/bi";
 
 function ProfileCard({ characterData, index }) {
@@ -60,13 +51,14 @@ function ProfileCard({ characterData, index }) {
   );
 
   let imageMarkup = characterData?.image ? (
-    <div className="relative h-32 w-32 flex-shrink-0 ">
+    <div className="relative h-32 w-32 flex-shrink-0">
       <Image
         data-testid={`profile-card-image-${index}`}
         src={characterData.image}
         layout="fill"
         objectFit="cover"
         className="rounded-lg"
+        alt={`${characterData.name} profile image`}
       />
     </div>
   ) : (
@@ -79,7 +71,7 @@ function ProfileCard({ characterData, index }) {
   );
 
   return (
-    <Link href={`/character/${characterData?.id}`}>
+    <Link href={`/character/${characterData?.id}`} passHref>
       <div
         data-testid="profile-card-component"
         className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"

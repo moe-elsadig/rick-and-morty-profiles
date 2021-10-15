@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdLightMode, MdNightlight } from "react-icons/md";
 
-function Header({ changeTheme }) {
+function Header({}) {
   const [theme, setTheme] = useState(false);
+
+  useEffect(() => {
+    let localTheme = localStorage.getItem("theme");
+    if (localTheme && localTheme === "true") {
+      setTheme(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  const changeTheme = () => {
+    localStorage.setItem("theme", !theme);
+    setTheme(!theme);
+    if (!theme) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  };
 
   return (
     <div
       data-testid="Header-component"
       className="sticky top-0 z-50 bg-white dark:bg-gray-800 h-16 flex flex-row w-screen shadow-md items-center"
     >
-      <Link href="/">
+      <Link href="/" passHref>
         <div className="flex w-14 h-14 relative flex-shrink-0 m-auto pl-16 cursor-pointer">
           <Image
             data-testid="Header-logo"
@@ -19,6 +37,7 @@ function Header({ changeTheme }) {
             layout="fill"
             objectFit="contain"
             className=""
+            alt="Site logo"
           />
         </div>
       </Link>
