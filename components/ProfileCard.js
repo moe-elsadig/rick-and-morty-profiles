@@ -6,20 +6,23 @@ import { BiPlanet } from "react-icons/bi";
 
 function ProfileCard({ characterData, index }) {
   let infoMarkup = characterData ? (
-    <div className="" data-testid="profile-card-info">
-      <h2 className="font-semibold truncate w-44 text-gray-900 dark:text-white">
+    <div
+      className="flex flex-grow flex-col w-10 max-w-full"
+      data-testid="profile-card-info"
+    >
+      <h2 className="font-semibold truncate  text-gray-900 dark:text-white">
         {characterData.name}
       </h2>
       <div className="flex items-center text-sm font-medium">
         <BiPlanet className="text-blue-400 dark:text-blue-500" />
-        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+        <h2 className="text-gray-700 dark:text-gray-300 truncate ">
           {characterData.origin?.name}
         </h2>
       </div>
       {characterData.location?.name !== characterData.origin?.name && (
         <div className="flex items-center text-sm font-medium">
           <GiPortal className="text-[#5ee021] dark:text-[#61ff18]" />
-          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          <h2 className="text-gray-700 dark:text-gray-300 truncate ">
             {characterData.location?.name}
           </h2>
         </div>
@@ -35,13 +38,13 @@ function ProfileCard({ characterData, index }) {
         {characterData.status === "unknown" && (
           <GiHalfDead className="text-gray-700 dark:text-gray-300" />
         )}
-        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44 ">
+        <h2 className="text-gray-700 dark:text-gray-300 truncate  ">
           {characterData.status}
         </h2>
       </div>
 
       <div className="flex items-center text-sm font-medium">
-        <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+        <h2 className="text-gray-700 dark:text-gray-300 truncate ">
           {characterData.type ? characterData.type : characterData.species}
         </h2>
       </div>
