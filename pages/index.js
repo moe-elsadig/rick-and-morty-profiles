@@ -2,6 +2,7 @@ import CardList from "@/components/CardList";
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
+import SearchFilter from "@/components/SearchFilter";
 import SiteSections from "@/components/SiteSections";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -90,6 +91,20 @@ export default function Home({ data }) {
     resetData(newSection);
   };
 
+  let addQuery = (query) => {
+    const url = new URL(currentPage);
+
+    let newEndpoint = url.origin + url.pathname + query;
+
+    setPage((prev) => {
+      return {
+        ...prev,
+        currentPage: newEndpoint,
+        currentPageNo: 1,
+      };
+    });
+  };
+
   let cardsMarkup =
     results && section === "characters" ? (
       <CharacterList charactersData={results} />
@@ -97,8 +112,14 @@ export default function Home({ data }) {
       <CardList dataList={results} type="locations" />
     ) : results && section === "episodes" ? (
       <CardList dataList={results} type="episodes" />
+    ) : results?.length || !results ? (
+      <div className="flex flex-col flex-grow w-full items-center justify-center">
+        <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
+          Nothing found
+        </p>
+      </div>
     ) : (
-      <div className="flex flex-row w-full items-center justify-center">
+      <div className="flex flex-col flex-grow w-full items-center justify-center">
         <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
           loading...
         </p>
@@ -121,6 +142,7 @@ export default function Home({ data }) {
           preSelectedSection={section}
           changeSection={changeSection}
         />
+        <SearchFilter type={section} addQuery={addQuery} />
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
@@ -131,6 +153,31 @@ export default function Home({ data }) {
           />
         </div>
       </main>
+      <footer className="border-t bg-gray-100 dark:bg-gray-900 flex flex-row flex-wrap items-end">
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto">
+          Designed & Developed by{" "}
+          <a
+            href="https://moeabdalla.com/"
+            alt=""
+            target="_blank"
+            className="text-red-400 dark:text-red-500"
+          >
+            Moe.
+          </a>
+        </p>
+
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 mx-auto">
+          Powered by{" "}
+          <a
+            href="https://rickandmortyapi.com/"
+            alt=""
+            target="_blank"
+            className="text-red-400 dark:text-red-500"
+          >
+            RickAndMortyApi.com
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
