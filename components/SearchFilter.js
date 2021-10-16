@@ -134,7 +134,7 @@ function SearchFilter({ type, addQuery }) {
             Status
           </option>
           <option value="">All</option>
-          <option value="female">Dead</option>
+          <option value="dead">Dead</option>
           <option value="alive">Alive</option>
           <option value="unknown">Unknown</option>
         </select>
