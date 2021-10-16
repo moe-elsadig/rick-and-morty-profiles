@@ -2,10 +2,7 @@ import React from "react";
 
 function Paginator({ nextFn, prevFn, currentPage, maxPage }) {
   return (
-    <div
-      data-testid="paginator-buttons-area"
-      className="w-screen max-w-md flex items-center justify-around h-20 "
-    >
+    <div data-testid="paginator-buttons-area" className="grid grid-cols-3 py-5">
       <button
         onClick={prevFn}
         disabled={currentPage === 1 ? true : false}
@@ -22,7 +19,7 @@ function Paginator({ nextFn, prevFn, currentPage, maxPage }) {
       <button
         onClick={nextFn}
         disabled={currentPage === maxPage ? true : false}
-        className={`bg-green-200 dark:bg-green-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse ${
+        className={`bg-blue-200 dark:bg-blue-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse ${
           currentPage === maxPage &&
           "bg-gray-200 text-gray-400 dark:bg-gray-700 dark:text-gray-500 shadow-none cursor-not-allowed"
         }`}

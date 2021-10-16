@@ -83,9 +83,6 @@ function ProfileCard({ characterData, index }) {
         {imageMarkup}
         {/* right */}
         {infoMarkup}
-        <label className="absolute bottom-0 right-0 p-2 rounded-br-xl text-white dark:text-gray-800 hover:text-green-300 dark:hover:text-green-700 cursor-pointer">
-          ...more
-        </label>
       </div>
     </Link>
   );
