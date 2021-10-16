@@ -112,7 +112,7 @@ function InfoCard({ data, type }) {
     >
       <div
         data-testid="infoCard-component"
-        className="flex items-between m-2 mt-5 p-4 space-x-4 rounded-xl cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
+        className="flex items-between m-2 mt-5 p-4 space-x-4 rounded-xl cursor-pointer hover:shadow-md dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
       >
         {infoMarkup}
         {characterPreviewMarkup}

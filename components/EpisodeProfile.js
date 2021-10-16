@@ -80,7 +80,7 @@ function EpisodeProfile({ episodeData }) {
         passHref
       >
         <button
-          className={`truncate bg-yellow-300 dark:bg-yellow-700 px-4 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row items-center`}
+          className={`truncate bg-yellow-300 dark:bg-yellow-700 hover:bg-yellow-200 dark:hover:bg-yellow-600 px-4 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row items-center`}
         >
           <div className="h-10 w-10 border-blue-200 relative">
             <Image
