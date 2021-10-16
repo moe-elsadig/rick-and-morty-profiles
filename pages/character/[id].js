@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 
 function ProfilePage({ data }) {
   return (
-    <div className={`bg-gray-500`}>
+    <div className={`bg-gray-200 dark:bg-gray-700`}>
       <Head>
         <title>{data?.name}&#39;s Profile</title>
         <meta

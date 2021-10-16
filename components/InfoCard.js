@@ -7,37 +7,43 @@ import { BiPlanet, BiMoviePlay } from "react-icons/bi";
 function InfoCard({ data, type }) {
   let infoMarkup =
     data && type === "locations" ? (
-      <div className="" data-testid="profile-card-info">
-        <h2 className="font-semibold truncate w-44 text-gray-900 dark:text-white inline-flex items-center pb-2">
+      <div
+        className="flex flex-grow flex-shrink-0 flex-col w-10 max-w-full"
+        data-testid="profile-card-info"
+      >
+        <h2 className="font-semibold truncate text-gray-900 dark:text-white inline-flex items-center pb-2">
           <BiPlanet className="text-blue-400 dark:text-blue-500" />
           {data.name}
         </h2>
         <div className="flex items-center text-sm font-medium">
           <GiPortal className="text-[#5ee021] dark:text-[#61ff18]" />
-          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          <h2 className="text-gray-700 dark:text-gray-300 truncate">
             {data.dimension}
           </h2>
         </div>
         <div className="flex items-center text-sm font-medium">
-          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          <h2 className="text-gray-700 dark:text-gray-300 truncate">
             {data.type}
           </h2>
         </div>
       </div>
     ) : data && type === "episodes" ? (
-      <div className="" data-testid="profile-card-info">
-        <h2 className="font-semibold truncate w-44 text-gray-900 dark:text-white">
+      <div
+        className="flex flex-grow flex-shrink-0 flex-col w-10 max-w-full"
+        data-testid="profile-card-info"
+      >
+        <h2 className="font-semibold truncate text-gray-900 dark:text-white">
           <BiMoviePlay className="text-blue-400 dark:text-blue-500" />
           {data.name}
         </h2>
         <div className="flex items-center text-sm font-medium">
-          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          <h2 className="text-gray-700 dark:text-gray-300 truncate">
             {data.air_date}
           </h2>
         </div>
 
         <div className="flex items-center text-sm font-medium">
-          <h2 className="text-gray-700 dark:text-gray-300 truncate w-44">
+          <h2 className="text-gray-700 dark:text-gray-300 truncate">
             {data.episode}
           </h2>
         </div>
@@ -52,7 +58,7 @@ function InfoCard({ data, type }) {
 
   let characterPreviewMarkup =
     data && data.residents ? (
-      <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
+      <div className="grid grid-cols-2 overflow-hidden items-start">
         {data.residents.slice(0, 3).map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
@@ -72,7 +78,7 @@ function InfoCard({ data, type }) {
         )}
       </div>
     ) : data && data.characters ? (
-      <div className="flex flex-wrap flex-grow overflow-hidden justify-end items-end">
+      <div className="grid grid-cols-2 overflow-hidden items-start">
         {data.characters.slice(0, 3).map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
@@ -106,13 +112,10 @@ function InfoCard({ data, type }) {
     >
       <div
         data-testid="infoCard-component"
-        className="flex items-between m-2 mt-5 p-4 space-x-4 rounded-xl cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
+        className="flex items-between m-2 mt-5 p-4 space-x-4 rounded-xl cursor-pointer hover:shadow-md dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"
       >
         {infoMarkup}
         {characterPreviewMarkup}
-        {/* <label className="absolute bottom-0 right-0 p-2 rounded-br-xl text-white dark:text-gray-800 hover:text-green-300 dark:hover:text-green-700 cursor-pointer">
-          ...more
-        </label> */}
       </div>
     </Link>
   );
