@@ -2,6 +2,7 @@ import CardList from "@/components/CardList";
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
+import SearchFilter from "@/components/SearchFilter";
 import SiteSections from "@/components/SiteSections";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -90,6 +91,22 @@ export default function Home({ data }) {
     resetData(newSection);
   };
 
+  let addQuery = (query) => {
+    console.log("query:", query);
+    console.log("url", currentPage);
+    const url = new URL(currentPage);
+    console.log(url.origin + url.pathname + query);
+    let newEndpoint = url.origin + url.pathname + query;
+
+    setPage((prev) => {
+      return {
+        ...prev,
+        currentPage: newEndpoint,
+        currentPageNo: 1,
+      };
+    });
+  };
+
   let cardsMarkup =
     results && section === "characters" ? (
       <CharacterList charactersData={results} />
@@ -121,6 +138,8 @@ export default function Home({ data }) {
           preSelectedSection={section}
           changeSection={changeSection}
         />
+        <SearchFilter type={section} addQuery={addQuery} />
+
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
