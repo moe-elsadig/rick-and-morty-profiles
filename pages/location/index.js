@@ -106,7 +106,7 @@ export default function Home({ data }) {
     );
 
   return (
-    <div className={`bg-gray-500`}>
+    <div className={`bg-gray-200 dark:bg-gray-700`}>
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta

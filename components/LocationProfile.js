@@ -7,12 +7,12 @@ import { BiPlanet } from "react-icons/bi";
 function LocationProfile({ locationData }) {
   let infoMarkup = locationData ? (
     <div
-      className="flex flex-grow bg-white dark:bg-gray-800 rounded-xl shadow-xl h-72 p-5 items-center"
+      className="flex flex-grow bg-white dark:bg-gray-800 rounded-xl shadow-xl min-h-72 p-5 "
       data-testid="profile-card-info"
     >
-      <ul>
+      <ul className="min-w-10 max-w-full">
         <li>
-          <h2 className="text-xl font-bold truncate max-w-64 sm:max-w-full text-gray-900 dark:text-white">
+          <h2 className="text-xl font-bold truncate  text-gray-900 dark:text-white">
             <BiPlanet className="text-2xl text-blue-400 dark:text-blue-500" />
             {locationData.name}
           </h2>
@@ -22,21 +22,21 @@ function LocationProfile({ locationData }) {
 
         <li>
           <div className="flex items-center text-base font-medium">
-            <label className="text-gray-400 dark:text-gray-500 pr-4">
+            <label className="text-gray-400 dark:text-gray-500 pr-4 truncate">
               Type:
             </label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300 truncate ">
               {locationData.type}
             </h2>
           </div>
         </li>
         <li>
           <div className="flex items-center text-base font-medium">
-            <label className="text-gray-400 dark:text-gray-500 pr-4">
+            <label className="text-gray-400 dark:text-gray-500 pr-4 truncate">
               Dimension:
             </label>
             <GiPortal className="text-blue-400 dark:text-blue-500" />
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300 truncate ">
               {locationData.dimension}
             </h2>
           </div>
@@ -44,10 +44,10 @@ function LocationProfile({ locationData }) {
 
         <li>
           <div className="flex items-center text-base font-medium">
-            <label className="text-gray-400 dark:text-gray-500 pr-4">
+            <label className="text-gray-400 dark:text-gray-500 pr-4 truncate">
               Residents:
             </label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <h2 className="text-gray-700 dark:text-gray-300 truncate ">
               {locationData.residents.length}
             </h2>
           </div>
@@ -56,8 +56,10 @@ function LocationProfile({ locationData }) {
 
         <li>
           <div className="flex items-center text-base font-medium">
-            <label className="text-gray-400 dark:text-gray-500 pr-4">ID:</label>
-            <h2 className="text-gray-700 dark:text-gray-300 truncate max-w-64 sm:max-w-full">
+            <label className="text-gray-400 dark:text-gray-500 pr-4 truncate">
+              ID:
+            </label>
+            <h2 className="text-gray-700 dark:text-gray-300 truncate ">
               {locationData.id}
             </h2>
           </div>
@@ -80,7 +82,7 @@ function LocationProfile({ locationData }) {
         passHref
       >
         <button
-          className={`w-64 bg-yellow-300 dark:bg-yellow-700 px-5 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row flex-shrink items-center space-x-4`}
+          className={`truncate bg-yellow-300 dark:bg-yellow-700 px-4 py-2 rounded-2xl shadow-lg hover:scale-105 transition transform duration-200 ease-out hover:animate-pulse font-semibold text-black dark:text-white flex flex-row items-center`}
         >
           <div className="h-10 w-10 border-blue-200 relative">
             <Image
@@ -92,7 +94,7 @@ function LocationProfile({ locationData }) {
               alt=""
             />
           </div>
-          <p className="">
+          <p className="truncate text-gray-700 dark:text-gray-300  sm:max-w-full text-wrap">
             Resident{" "}
             {resident.split("https://rickandmortyapi.com/api/character/")}
           </p>
@@ -119,7 +121,7 @@ function LocationProfile({ locationData }) {
         <h2 className="m-auto text-lg font-bold text-gray-400 dark:text-gray-500">
           Residents
         </h2>
-        <div className="flex flex-row flex-wrap gap-4 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
           {residentsMarkup}
         </div>
       </div>
