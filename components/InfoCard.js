@@ -48,6 +48,12 @@ function InfoCard({ data, type }) {
           </h2>
         </div>
       </div>
+    ) : results === [] ? (
+      <div className="flex flex-row w-full items-center justify-center">
+        <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
+          Nothing found
+        </p>
+      </div>
     ) : (
       <div className="flex flex-row w-full items-center justify-center">
         <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
@@ -96,6 +102,12 @@ function InfoCard({ data, type }) {
             +{data.characters.length - 3}
           </p>
         )}
+      </div>
+    ) : data.residents === [] ? (
+      <div className="flex flex-row w-full items-center justify-center">
+        <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
+          Nothing found
+        </p>
       </div>
     ) : (
       <div className="flex flex-row w-full items-center justify-center">
