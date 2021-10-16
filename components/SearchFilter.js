@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function SearchFilter({ type, addQuery }) {
+function SearchFilter({ type, addQuery = () => {} }) {
   // character variables
   const [characterName, setCharacterName] = useState("");
   const [characterSpecies, setCharacterSpecies] = useState("");

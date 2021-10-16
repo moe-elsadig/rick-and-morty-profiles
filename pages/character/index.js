@@ -154,6 +154,31 @@ export default function Home({ data }) {
           />
         </div>
       </main>
+      <footer className="border-t bg-gray-100 dark:bg-gray-900 flex flex-row flex-wrap items-end">
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto">
+          Designed & Developed by{" "}
+          <a
+            href="https://moeabdalla.com/"
+            alt=""
+            target="_blank"
+            className="text-red-400 dark:text-red-500"
+          >
+            Moe.
+          </a>
+        </p>
+
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 mx-auto">
+          Powered by{" "}
+          <a
+            href="https://rickandmortyapi.com/"
+            alt=""
+            target="_blank"
+            className="text-red-400 dark:text-red-500"
+          >
+            RickAndMortyApi.com
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
