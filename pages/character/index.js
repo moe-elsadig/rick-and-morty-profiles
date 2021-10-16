@@ -161,6 +161,7 @@ export default function Home({ data }) {
             href="https://moeabdalla.com/"
             alt=""
             target="_blank"
+            rel="noreferrer"
             className="text-red-400 dark:text-red-500"
           >
             Moe.
@@ -173,6 +174,7 @@ export default function Home({ data }) {
             href="https://rickandmortyapi.com/"
             alt=""
             target="_blank"
+            rel="noreferrer"
             className="text-red-400 dark:text-red-500"
           >
             RickAndMortyApi.com
