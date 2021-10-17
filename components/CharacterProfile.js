@@ -187,7 +187,7 @@ function CharacterProfile({ characterData }) {
         <h2 className="truncate m-auto text-lg font-bold text-gray-400 dark:text-gray-500">
           Episodes
         </h2>
-        <div className="flex flex-row flex-wrap gap-4 justify-center">
+        <div className="flex flex-row flex-wrap gap-4 justify-center p-4">
           {episodesMarkup}
         </div>
       </div>
