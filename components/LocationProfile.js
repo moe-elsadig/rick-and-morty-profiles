@@ -48,7 +48,7 @@ function LocationProfile({ locationData }) {
               Residents:
             </label>
             <h2 className="text-gray-700 dark:text-gray-300 truncate ">
-              {locationData.residents.length}
+              {locationData.residents?.length}
             </h2>
           </div>
         </li>

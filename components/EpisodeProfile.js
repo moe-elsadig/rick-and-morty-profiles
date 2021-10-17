@@ -46,7 +46,7 @@ function EpisodeProfile({ episodeData }) {
               Characters:
             </label>
             <h2 className="text-gray-700 dark:text-gray-300 truncate">
-              {episodeData.characters.length}
+              {episodeData.characters?.length}
             </h2>
           </div>
         </li>

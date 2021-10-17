@@ -71,9 +71,9 @@ function InfoCard({ data, type }) {
             />
           </div>
         ))}
-        {data.residents.length > 3 && (
+        {data.residents?.length > 3 && (
           <p className="text-gray-300 dark:text-gray-600 font-semibold h-10 w-10 flex items-center justify-center text-sm bg-gray-100 dark:bg-gray-900 rounded-full">
-            +{data.residents.length - 3}
+            +{data.residents?.length - 3}
           </p>
         )}
       </div>
@@ -91,13 +91,13 @@ function InfoCard({ data, type }) {
             />
           </div>
         ))}
-        {data.characters.length > 3 && (
+        {data.characters?.length > 3 && (
           <p className="text-gray-300 dark:text-gray-600 font-semibold h-10 w-10 flex items-center justify-center text-sm bg-gray-100 dark:bg-gray-900 rounded-full">
-            +{data.characters.length - 3}
+            +{data.characters?.length - 3}
           </p>
         )}
       </div>
-    ) : data?.residents.length === 0 ? (
+    ) : data?.residents?.length === 0 ? (
       <div className="flex flex-col flex-grow w-full items-center justify-center">
         <p className="m-auto text-gray-300 dark:text-gray-700 animate-pulse">
           Nothing found
