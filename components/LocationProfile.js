@@ -75,9 +75,9 @@ function LocationProfile({ locationData }) {
   );
 
   let residentsMarkup = locationData ? (
-    locationData.residents.map((resident, index) => (
+    locationData?.residents?.map((resident, index) => (
       <Link
-        href={resident.replace("https://rickandmortyapi.com/api", "")}
+        href={resident.replace("https://rickandmortyapi.com/api", "") + ""}
         key={index}
         passHref
       >

@@ -73,9 +73,9 @@ function EpisodeProfile({ episodeData }) {
   );
 
   let charactersMarkup = episodeData ? (
-    episodeData.characters.map((character, index) => (
+    episodeData?.characters?.map((character, index) => (
       <Link
-        href={character.replace("https://rickandmortyapi.com/api", "")}
+        href={character.replace("https://rickandmortyapi.com/api", "") + ""}
         key={index}
         passHref
       >

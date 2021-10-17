@@ -59,7 +59,7 @@ function InfoCard({ data, type }) {
   let characterPreviewMarkup =
     data && data.residents ? (
       <div className="grid grid-cols-2 overflow-hidden items-start">
-        {data.residents.slice(0, 3).map((resident, index) => (
+        {data?.residents?.slice(0, 3)?.map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
@@ -79,7 +79,7 @@ function InfoCard({ data, type }) {
       </div>
     ) : data && data.characters ? (
       <div className="grid grid-cols-2 overflow-hidden items-start">
-        {data.characters.slice(0, 3).map((resident, index) => (
+        {data?.characters?.slice(0, 3)?.map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             <Image
               data-testid={`profile-card-image`}
@@ -91,7 +91,7 @@ function InfoCard({ data, type }) {
             />
           </div>
         ))}
-        {data.characters?.length > 3 && (
+        {data?.characters?.length > 3 && (
           <p className="text-gray-300 dark:text-gray-600 font-semibold h-10 w-10 flex items-center justify-center text-sm bg-gray-100 dark:bg-gray-900 rounded-full">
             +{data.characters?.length - 3}
           </p>
@@ -113,7 +113,9 @@ function InfoCard({ data, type }) {
 
   return (
     <Link
-      href={`/${type === "locations" ? "location" : "episode"}/${data?.id}`}
+      href={
+        `/${type === "locations" ? "location" : "episode"}/${data?.id}` + ""
+      }
       passHref
     >
       <div

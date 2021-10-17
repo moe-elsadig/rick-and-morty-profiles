@@ -57,11 +57,21 @@ export async function getServerSideProps({ query }) {
 
   // use the online REST API
   const characterEndpoint = `https://rickandmortyapi.com/api/location/${id}`;
-  const data = await (
-    await fetch(characterEndpoint).catch((err) => {
-      return;
-    })
-  ).json();
+
+  let data;
+  try {
+    data = await (await fetch(characterEndpoint)).json();
+  } catch (error) {
+    data = {
+      info: {
+        count: 0,
+        pages: 1,
+        next: characterEndpoint,
+        prev: null,
+      },
+      results: [],
+    };
+  }
 
   return {
     props: { data },

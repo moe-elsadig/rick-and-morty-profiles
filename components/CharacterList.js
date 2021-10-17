@@ -3,7 +3,7 @@ import ProfileCard from "./ProfileCard";
 
 function CharacterList({ charactersData }) {
   let cardsMarkup = charactersData ? (
-    charactersData.map((characterData, index) => (
+    charactersData?.map((characterData, index) => (
       <ProfileCard
         characterData={characterData}
         index={index}
