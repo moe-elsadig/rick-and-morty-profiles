@@ -27,7 +27,11 @@ export default function Home({ data }) {
   useEffect(() => {
     async function getNewData() {
       // use the online REST API
-      const data = await (await fetch(currentPage)).json();
+      try {
+        const data = await (await fetch(currentPage)).json();
+      } catch (error) {
+        return;
+      }
       setResults(data.results);
       setPage((prev) => {
         return {
@@ -70,7 +74,11 @@ export default function Home({ data }) {
           ? episodesEndpoint
           : defaultEndpoint;
 
-      const data = await (await fetch(newEndpoint)).json();
+      try {
+        const data = await (await fetch(newEndpoint)).json();
+      } catch (error) {
+        return;
+      }
       // setResults(data.results);
       setPage((prev) => {
         return {
@@ -187,8 +195,21 @@ export default function Home({ data }) {
 
 export async function getStaticProps(context) {
   // use the online REST API
-  const data = await (await fetch(episodesEndpoint)).json();
 
+  let data;
+  try {
+    data = await (await fetch(episodesEndpoint)).json();
+  } catch (error) {
+    data = {
+      info: {
+        count: 0,
+        pages: 1,
+        next: episodesEndpoint,
+        prev: null,
+      },
+      results: [],
+    };
+  }
   return {
     props: { data },
   };

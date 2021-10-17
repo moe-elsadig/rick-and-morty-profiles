@@ -129,8 +129,9 @@ function SearchFilter({ type, addQuery = () => {} }) {
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
+          defaultValue=""
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Status
           </option>
           <option value="">All</option>
@@ -151,8 +152,9 @@ function SearchFilter({ type, addQuery = () => {} }) {
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
+          defaultValue=""
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Gender
           </option>
           <option value="">All</option>

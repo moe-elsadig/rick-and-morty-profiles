@@ -12,7 +12,10 @@ const defaultEndpoint = "https://rickandmortyapi.com/api/character/?page=1";
 const locationsEndpoint = "https://rickandmortyapi.com/api/location/?page=1";
 const episodesEndpoint = "https://rickandmortyapi.com/api/episode/?page=1";
 
-export default function Home({ data }) {
+export default function Home({ data, data: { error } }) {
+  if (error) {
+    return <div>Error</div>;
+  }
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
   const [section, setSection] = useState("characters");
@@ -27,7 +30,11 @@ export default function Home({ data }) {
   useEffect(() => {
     async function getNewData() {
       // use the online REST API
-      const data = await (await fetch(currentPage)).json();
+      try {
+        const data = await (await fetch(currentPage)).json();
+      } catch (error) {
+        return;
+      }
       setResults(data.results);
       setPage((prev) => {
         return {
@@ -70,7 +77,11 @@ export default function Home({ data }) {
           ? episodesEndpoint
           : defaultEndpoint;
 
-      const data = await (await fetch(newEndpoint)).json();
+      try {
+        const data = await (await fetch(newEndpoint)).json();
+      } catch (error) {
+        return;
+      }
       // setResults(data.results);
       setPage((prev) => {
         return {
@@ -186,7 +197,20 @@ export default function Home({ data }) {
 
 export async function getStaticProps(context) {
   // use the online REST API
-  const data = await (await fetch(defaultEndpoint)).json();
+  let data;
+  try {
+    data = await (await fetch(defaultEndpoint)).json();
+  } catch (error) {
+    data = {
+      info: {
+        count: 0,
+        pages: 1,
+        next: defaultEndpoint,
+        prev: null,
+      },
+      results: [],
+    };
+  }
 
   return {
     props: { data },

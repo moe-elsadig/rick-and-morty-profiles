@@ -74,7 +74,7 @@ function ProfileCard({ characterData, index }) {
   );
 
   return (
-    <Link href={`/character/${characterData?.id}`} passHref>
+    <Link href={`/character/${characterData?.id}` + ""} passHref>
       <div
         data-testid="profile-card-component"
         className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:shadow-md dark:hover:bg-gray-700 hover:scale-105 transition transform duration-200 ease-out shadow-sm bg-white dark:bg-gray-800"

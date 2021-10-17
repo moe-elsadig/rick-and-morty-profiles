@@ -63,10 +63,12 @@ function CharacterProfile({ characterData }) {
               Origin:
             </label>
             <Link
-              href={characterData.origin?.url.replace(
-                "https://rickandmortyapi.com/api",
-                ""
-              )}
+              href={
+                characterData.origin?.url.replace(
+                  "https://rickandmortyapi.com/api",
+                  ""
+                ) + ""
+              }
               passHref
             >
               <button
@@ -85,10 +87,12 @@ function CharacterProfile({ characterData }) {
               Location:
             </label>
             <Link
-              href={characterData.location?.url.replace(
-                "https://rickandmortyapi.com/api",
-                ""
-              )}
+              href={
+                characterData.location?.url.replace(
+                  "https://rickandmortyapi.com/api",
+                  ""
+                ) + ""
+              }
               passHref
             >
               <button
@@ -154,9 +158,9 @@ function CharacterProfile({ characterData }) {
   );
 
   let episodesMarkup = characterData
-    ? characterData.episode.map((episode, index) => (
+    ? characterData?.episode?.map((episode, index) => (
         <Link
-          href={episode.replace("https://rickandmortyapi.com/api", "")}
+          href={episode.replace("https://rickandmortyapi.com/api", "") + ""}
           key={index}
           passHref
         >
@@ -187,7 +191,7 @@ function CharacterProfile({ characterData }) {
         <h2 className="truncate m-auto text-lg font-bold text-gray-400 dark:text-gray-500">
           Episodes
         </h2>
-        <div className="flex flex-row flex-wrap gap-4 justify-center">
+        <div className="flex flex-row flex-wrap gap-4 justify-center p-4">
           {episodesMarkup}
         </div>
       </div>

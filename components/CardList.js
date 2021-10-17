@@ -9,7 +9,7 @@ function CardList({ dataList = [], type = "locations" }) {
   }, dataList);
 
   let cardsMarkup = data ? (
-    data.map((data, index) => (
+    data?.map((data, index) => (
       <InfoCard data={data} type={type} index={index} key={data.id} />
     ))
   ) : (
