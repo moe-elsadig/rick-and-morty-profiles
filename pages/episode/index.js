@@ -15,11 +15,11 @@ const episodesEndpoint = "https://rickandmortyapi.com/api/episode/?page=1";
 export default function Home({ data }) {
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
-  const [section, setSection] = useState("characters");
+  const [section, setSection] = useState("episodes");
   const [page, setPage] = useState({
     ...info,
     currentPageNo: startingPage,
-    currentPage: defaultEndpoint,
+    currentPage: episodesEndpoint,
   });
 
   const { currentPage, currentPageNo } = page;
@@ -153,6 +153,7 @@ export default function Home({ data }) {
           changeSection={changeSection}
         />
         <SearchFilter type={section} addQuery={addQuery} />
+
         {cardsMarkup}
         <div className="m-auto">
           <Paginator
@@ -196,21 +197,21 @@ export default function Home({ data }) {
 
 export async function getStaticProps(context) {
   // use the online REST API
+
   let data;
   try {
-    data = await (await fetch(defaultEndpoint)).json();
+    data = await (await fetch(episodesEndpoint)).json();
   } catch (error) {
     data = {
       info: {
         count: 0,
         pages: 1,
-        next: defaultEndpoint,
+        next: episodesEndpoint,
         prev: null,
       },
       results: [],
     };
   }
-
   return {
     props: { data },
   };

@@ -153,6 +153,7 @@ export default function Home({ data }) {
           changeSection={changeSection}
         />
         <SearchFilter type={section} addQuery={addQuery} />
+
         {cardsMarkup}
         <div className="m-auto">
           <Paginator

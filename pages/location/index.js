@@ -15,11 +15,11 @@ const episodesEndpoint = "https://rickandmortyapi.com/api/episode/?page=1";
 export default function Home({ data }) {
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
-  const [section, setSection] = useState("characters");
+  const [section, setSection] = useState("locations");
   const [page, setPage] = useState({
     ...info,
     currentPageNo: startingPage,
-    currentPage: defaultEndpoint,
+    currentPage: locationsEndpoint,
   });
 
   const { currentPage, currentPageNo } = page;
@@ -198,13 +198,13 @@ export async function getStaticProps(context) {
   // use the online REST API
   let data;
   try {
-    data = await (await fetch(defaultEndpoint)).json();
+    data = await (await fetch(locationsEndpoint)).json();
   } catch (error) {
     data = {
       info: {
         count: 0,
         pages: 1,
-        next: defaultEndpoint,
+        next: locationsEndpoint,
         prev: null,
       },
       results: [],
