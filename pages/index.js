@@ -12,10 +12,7 @@ const defaultEndpoint = "https://rickandmortyapi.com/api/character/?page=1";
 const locationsEndpoint = "https://rickandmortyapi.com/api/location/?page=1";
 const episodesEndpoint = "https://rickandmortyapi.com/api/episode/?page=1";
 
-export default function Home({ data, data: { error } }) {
-  if (error) {
-    return <div>Error</div>;
-  }
+export default function Home({ data }) {
   const { info, results: newResults = [] } = data;
   const [results, setResults] = useState(newResults);
   const [section, setSection] = useState("characters");
