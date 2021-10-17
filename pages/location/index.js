@@ -27,8 +27,9 @@ export default function Home({ data }) {
   useEffect(() => {
     async function getNewData() {
       // use the online REST API
+      let data;
       try {
-        const data = await (await fetch(currentPage)).json();
+        data = await (await fetch(currentPage)).json();
       } catch (error) {
         return;
       }
@@ -74,8 +75,9 @@ export default function Home({ data }) {
           ? episodesEndpoint
           : defaultEndpoint;
 
+      let data;
       try {
-        const data = await (await fetch(newEndpoint)).json();
+        data = await (await fetch(newEndpoint)).json();
       } catch (error) {
         return;
       }
