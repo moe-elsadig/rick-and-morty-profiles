@@ -139,14 +139,16 @@ function CharacterProfile({ characterData }) {
 
   let imageMarkup = characterData?.image ? (
     <div className="m-auto relative p-5 h-60 w-60 sm:h-72 sm:w-72 flex-shrink-0 shadow-lg bg-transparent">
-      <Image
-        data-testid={`profile-card-image`}
-        alt=""
-        src={characterData.image}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-lg"
-      />
+      {characterData?.image && (
+        <Image
+          data-testid={`profile-card-image`}
+          alt=""
+          src={characterData.image}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      )}
     </div>
   ) : (
     <p
