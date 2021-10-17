@@ -121,7 +121,7 @@ function CharacterProfile({ characterData }) {
               Appearances:
             </label>
             <h2 className="truncate text-gray-700 dark:text-gray-300  sm:max-w-full">
-              {characterData.episode.length}
+              {characterData.episode?.length}
             </h2>
           </div>
         </li>
