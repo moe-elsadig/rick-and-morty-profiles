@@ -37,7 +37,6 @@ describe("Paginator Component", () => {
         setCurrentPage(prevCurrentPage=> prevCurrentPage-1);
       }
     
-    
     return (
       <div data-testid='mock'>
         <Paginator nextFn={goNext} prevFn={goPrev} currentPage={currentPage} maxPage={4} />
@@ -46,10 +45,8 @@ describe("Paginator Component", () => {
 
     let component = render(<MockPage/>)
 
-    const mockEl = component.getByTestId('mock')
     const numberEl = component.getByTestId('paginator-number')
     const nextButtonEl = component.getByTestId('paginator-next')
-    const backButtonEl = component.getByTestId('paginator-back')
 
 
     expect(numberEl.textContent).toBe('2')
@@ -75,7 +72,6 @@ describe("Paginator Component", () => {
         setCurrentPage(prevCurrentPage=> prevCurrentPage-1);
       }
     
-    
     return (
       <div data-testid='mock'>
         <Paginator nextFn={goNext} prevFn={goPrev} currentPage={currentPage} maxPage={4} />
@@ -84,11 +80,8 @@ describe("Paginator Component", () => {
 
     let component = render(<MockPage/>)
 
-    const mockEl = component.getByTestId('mock')
     const numberEl = component.getByTestId('paginator-number')
-    const nextButtonEl = component.getByTestId('paginator-next')
     const backButtonEl = component.getByTestId('paginator-back')
-
 
     expect(numberEl.textContent).toBe('3')
     fireEvent.click(backButtonEl)
