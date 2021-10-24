@@ -8,27 +8,37 @@ Navigate, browse and search the characters, locations and episodes of the hit sh
 
 ### Character Endpoint
 
-- [x] Character navigation with pagination
-- [x] Full character profiles with additional location and episode information
+- [x] Character cards with pagination
+- [x] Character profiles with additional location and episode information
 - [x] Character filter for **Gender** and **Status**
-- [x] Character search by **Name**, **Species** and Species **Type**
+- [x] Character search by **Name**, **Species** and **Type**
 
 ### Location Endpoint
 
-- [x] Location navigation with pagination
-- [x] Full Location profiles with additional resident (character) information
+- [x] Location cards with pagination and resident thumbnails + count
+- [x] Location profiles with additional information and links to residing characters
 - [x] Location search by **Name**, **Type** and **Dimension**
 
 ### Episode Endpoint
 
-- [x] Character navigation with pagination
-- [x] Full character profiles with additional location and episode information
-- [x] Character search by **Title**, and Species **Episode** code (e.g. S01E01)
+- [x] Episode cards with pagination and character thumbnails + count
+- [x] Episode profiles with additional information and links to characters in the episode
+- [x] Episode search by **Title**, and **Episode code** (e.g. S01E01)
 
 ### Extra
 
 - [x] Server-side rendering
 - [x] SEO consideration: data titles and descriptions in the head of each page
 - [x] Light and dark mode with switcher
-- [] Component tests (_- incomoplete_)
+- [ ] Component tests (_- incomoplete_)
 - [x] Responsive UI
+- [ ] Sitemap generation
+- [ ] Client-side/PWA version
+- [ ] Quiz game
+- [ ] Top-trumps-like game
+- [ ] Monthly Character votes and awards
+- [ ] Caching strategy based on active season and not
+- [ ] Shareable embeddable cards
+- [ ] optional background music?
+- [ ] push notifications for new episode releases
+- [ ] Custom new character suggestions
