@@ -30,5 +30,15 @@ Navigate, browse and search the characters, locations and episodes of the hit sh
 - [x] Server-side rendering
 - [x] SEO consideration: data titles and descriptions in the head of each page
 - [x] Light and dark mode with switcher
-- [] Component tests (_- incomoplete_)
+- [ ] Component tests (_- incomoplete_)
 - [x] Responsive UI
+- [ ] Sitemap generation
+- [ ] Client-side/PWA version
+- [ ] Quiz game
+- [ ] Top-trumps-like game
+- [ ] Monthly Character votes and awards
+- [ ] Caching strategy based on active season and not
+- [ ] Shareable embeddable cards
+- [ ] optional background music?
+- [ ] push notifications for new episode releases
+- [ ] Custom new character suggestions
