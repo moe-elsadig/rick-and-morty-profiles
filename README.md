@@ -8,22 +8,22 @@ Navigate, browse and search the characters, locations and episodes of the hit sh
 
 ### Character Endpoint
 
-- [x] Character navigation with pagination
-- [x] Full character profiles with additional location and episode information
+- [x] Character cards with pagination
+- [x] Character profiles with additional location and episode information
 - [x] Character filter for **Gender** and **Status**
-- [x] Character search by **Name**, **Species** and Species **Type**
+- [x] Character search by **Name**, **Species** and **Type**
 
 ### Location Endpoint
 
-- [x] Location navigation with pagination
-- [x] Full Location profiles with additional resident (character) information
+- [x] Location cards with pagination and resident thumbnails + count
+- [x] Location profiles with additional information and links to residing characters
 - [x] Location search by **Name**, **Type** and **Dimension**
 
 ### Episode Endpoint
 
-- [x] Character navigation with pagination
-- [x] Full character profiles with additional location and episode information
-- [x] Character search by **Title**, and Species **Episode** code (e.g. S01E01)
+- [x] Episode cards with pagination and character thumbnails + count
+- [x] Episode profiles with additional information and links to characters in the episode
+- [x] Episode search by **Title**, and **Episode code** (e.g. S01E01)
 
 ### Extra
 
