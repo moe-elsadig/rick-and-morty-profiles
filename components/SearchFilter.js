@@ -129,7 +129,6 @@ function SearchFilter({ type, addQuery = () => {} }) {
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
-          defaultValue=""
         >
           <option value="" disabled>
             Status
@@ -152,7 +151,6 @@ function SearchFilter({ type, addQuery = () => {} }) {
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
-          defaultValue=""
         >
           <option value="" disabled>
             Gender
