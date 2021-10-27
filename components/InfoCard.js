@@ -63,6 +63,8 @@ function InfoCard({ data, type }) {
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             {resident && (
               <Image
+                placeholder="blur"
+                blurDataURL="/logo.png"
                 data-testid={`profile-card-image`}
                 src={
                   resident.replace("character", "character/avatar") + ".jpeg"
@@ -87,6 +89,8 @@ function InfoCard({ data, type }) {
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
             {resident && (
               <Image
+                placeholder="blur"
+                blurDataURL="/logo.png"
                 data-testid={`profile-card-image`}
                 src={
                   resident.replace("character", "character/avatar") + ".jpeg"

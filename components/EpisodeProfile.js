@@ -85,6 +85,8 @@ function EpisodeProfile({ episodeData }) {
           <div className="h-10 w-10 border-blue-200 relative">
             {character && (
               <Image
+                placeholder="blur"
+                blurDataURL="/logo.png"
                 data-testid={`profile-card-image`}
                 src={
                   character.replace("character", "character/avatar") + ".jpeg"
