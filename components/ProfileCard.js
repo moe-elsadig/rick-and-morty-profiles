@@ -55,14 +55,16 @@ function ProfileCard({ characterData, index }) {
 
   let imageMarkup = characterData?.image ? (
     <div className="relative h-32 w-32 flex-shrink-0">
-      <Image
-        data-testid={`profile-card-image-${index}`}
-        src={characterData.image}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-lg"
-        alt={`${characterData.name} profile image`}
-      />
+      {characterData.image && (
+        <Image
+          data-testid={`profile-card-image-${index}`}
+          src={characterData.image}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+          alt={`${characterData.name} profile image`}
+        />
+      )}
     </div>
   ) : (
     <p

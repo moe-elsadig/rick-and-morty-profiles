@@ -29,7 +29,7 @@ function Header({}) {
       data-testid="Header-component"
       className="sticky top-0 z-50 bg-white dark:bg-gray-800 h-16 flex flex-row w-screen shadow-md items-center"
     >
-      <Link href="/" passHref>
+      <Link href="/" passHref data-testid="Header-logo-link">
         <div className="flex w-14 h-14 relative flex-shrink-0 m-auto pl-16 cursor-pointer">
           <Image
             data-testid="Header-logo"
@@ -42,7 +42,7 @@ function Header({}) {
         </div>
       </Link>
 
-      <Link href="/" passHref>
+      <Link href="/" passHref data-testid="Header-heading-link">
         <div className="flex-shrink pl-2 cursor-pointer">
           <h1
             className="hidden md:inline-flex md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 dark:text-gray-100"
@@ -58,8 +58,9 @@ function Header({}) {
 
       <div className="flex-grow"></div>
 
-      <div className="flex-shrink-0 px-4" data-testid="Header-buttons-area">
+      <div className="flex-shrink-0 px-4">
         <button
+          data-testid="Header-theme-button"
           onClick={() => {
             setTheme(!theme);
             changeTheme();
@@ -67,7 +68,11 @@ function Header({}) {
           className={`px-5 py-2 rounded-2xl opacity-70 transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 hover:opacity-100 hover:animate-pulse`}
         >
           <p className="font-semibold text-black dark:text-white">
-            {theme ? <MdLightMode /> : <MdNightlight />}
+            {theme ? (
+              <MdLightMode data-testid="go-light" />
+            ) : (
+              <MdNightlight data-testid="go-dark" />
+            )}
           </p>
         </button>
       </div>
