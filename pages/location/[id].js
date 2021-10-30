@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 
 function LocationPage({ data }) {
   return (
-    <div className={`bg-gray-200 dark:bg-gray-700`}>
+    <div className={`bg-gray-200 dark:bg-gray-700`} lang="en">
       <Head>
         <title>{data?.name} - Location</title>
         <meta
