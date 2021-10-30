@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch-all --verbose"
@@ -29,6 +30,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "^27.2.5",
     "jsdom": "^16.7.0",
+    "next-sitemap": "^1.6.192",
     "postcss": "^8.3.9",
     "react-test-renderer": "^17.0.2",
     "tailwindcss": "^2.2.16"
