@@ -48,9 +48,9 @@ function Header({}) {
             className="hidden md:inline-flex md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 dark:text-gray-100"
             data-testid="Header-heading"
           >
-            The <span className="text-blue-400 dark:text-blue-500">Rick</span>{" "}
-            <span className="text-green-400 dark:text-green-500">&</span>{" "}
-            <span className="text-yellow-400 dark:text-yellow-500">Morty</span>{" "}
+            The <span className="text-blue-600 dark:text-blue-300">Rick</span>{" "}
+            <span className="text-green-600 dark:text-green-300">&</span>{" "}
+            <span className="text-yellow-600 dark:text-yellow-300">Morty</span>{" "}
             Encyclopedia
           </h1>
         </div>
@@ -61,6 +61,7 @@ function Header({}) {
       <div className="flex-shrink-0 px-4">
         <button
           data-testid="Header-theme-button"
+          aria-label="change theme button"
           onClick={() => {
             setTheme(!theme);
             changeTheme();

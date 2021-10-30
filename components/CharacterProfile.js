@@ -141,6 +141,8 @@ function CharacterProfile({ characterData }) {
     <div className="m-auto relative p-5 h-60 w-60 sm:h-72 sm:w-72 flex-shrink-0 shadow-lg bg-transparent">
       {characterData?.image && (
         <Image
+          placeholder="blur"
+          blurDataURL="/logo.png"
           data-testid={`profile-card-image`}
           alt=""
           src={characterData.image}

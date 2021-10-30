@@ -14,6 +14,7 @@ function EpisodePage({ data }) {
           content={`${data?.id}-${data?.name}-${data?.episode}-Rick & Morty Encyclopedia powere by the rickandmortyapi.com API`}
         />
         <link rel="icon" href="/favicon.ico" />
+        <html lang="en" />
       </Head>
       <Header />
       <main className="flex flex-col min-h-screen h-full items-center p-10 bg-gray-100 dark:bg-gray-900">

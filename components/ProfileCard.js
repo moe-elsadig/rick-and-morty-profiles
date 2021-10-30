@@ -57,6 +57,8 @@ function ProfileCard({ characterData, index }) {
     <div className="relative h-32 w-32 flex-shrink-0">
       {characterData.image && (
         <Image
+          placeholder="blur"
+          blurDataURL="/logo.png"
           data-testid={`profile-card-image-${index}`}
           src={characterData.image}
           layout="fill"
