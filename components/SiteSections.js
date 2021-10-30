@@ -69,13 +69,9 @@ function SiteSections({ preSelectedSection, changeSection }) {
       </button>
       <div className="absolute right-10">
         <div className="hidden md:inline-flex w-16 h-40 sm:h-40 md:h-52 relative">
-          <Image
-            src="/images/pleased-rick.gif"
-            layout="fill"
-            objectFit="contain"
-            className=""
-            alt=""
-          />
+          <video autoPlay loop>
+            <source src="/images/pleased-rick.webm" />
+          </video>
         </div>
       </div>
     </div>
