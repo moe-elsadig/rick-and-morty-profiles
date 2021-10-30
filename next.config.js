@@ -3,5 +3,5 @@ module.exports = {
   images: {
     domains: ["rickandmortyapi.com"],
   },
-  swcMinify: true,
+  // swcMinify: true,
 };

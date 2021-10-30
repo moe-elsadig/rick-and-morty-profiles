@@ -61,6 +61,7 @@ function Header({}) {
       <div className="flex-shrink-0 px-4">
         <button
           data-testid="Header-theme-button"
+          aria-label="change theme button"
           onClick={() => {
             setTheme(!theme);
             changeTheme();

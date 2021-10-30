@@ -137,7 +137,7 @@ export default function Home({ data }) {
     );
 
   return (
-    <div className={`bg-gray-200 dark:bg-gray-700`} lang="en">
+    <div className={`bg-gray-200 dark:bg-gray-700`}>
       <Head>
         <title>Rick & Morty Encyclopedia</title>
         <meta
@@ -145,6 +145,7 @@ export default function Home({ data }) {
           content="Rick & Morty Encyclopedia powere by the rickandmortyapi.com API"
         />
         <link rel="icon" href="/favicon.ico" />
+        <html lang="en" />
       </Head>
       <Header />
       <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto items-start">
