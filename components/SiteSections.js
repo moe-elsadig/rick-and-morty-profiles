@@ -67,13 +67,14 @@ function SiteSections({ preSelectedSection, changeSection }) {
           Episodes
         </p>
       </button>
-      <div className="absolute right-10">
-        <div className="hidden md:inline-flex w-16 h-40 sm:h-40 md:h-52 relative">
-          <video autoPlay loop>
-            <source src="/images/pleased-rick.webm" />
-          </video>
-        </div>
-      </div>
+      {/* <div className="absolute right-10">
+        <video
+          autoPlay
+          loop
+          src="/images/pleased-rick.webm"
+          className="hidden md:inline-flex w-16 h-40 sm:h-40 md:h-52 relative"
+        />
+      </div> */}
     </div>
   );
 }
