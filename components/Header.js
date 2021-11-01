@@ -11,6 +11,9 @@ function Header({}) {
     if (localTheme && localTheme === "true") {
       setTheme(true);
       document.body.classList.add("dark");
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", "#1f2937");
     }
   }, []);
 
@@ -19,8 +22,14 @@ function Header({}) {
     setTheme(!theme);
     if (!theme) {
       document.body.classList.add("dark");
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", "#1f2937");
     } else {
       document.body.classList.remove("dark");
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", "#fff");
     }
   };
 
