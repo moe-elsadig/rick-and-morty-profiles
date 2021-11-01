@@ -1,6 +1,6 @@
 # Rick & Morty Show Info
 
-Navigate, browse and search the characters, locations and episodes of the hit show Rick & Morty. This is an that consumes endpoints provided by the API from (rickandmortyapi.com)[htps://rickandmortyapi.com].
+Navigate, browse and search the characters, locations and episodes of the hit show Rick & Morty. This is an that consumes endpoints provided by the API from [rickandmortyapi.com](https://rickandmortyapi.com).
 
 [Demo here](https://rick-and-morty-profiles.vercel.app)
 
