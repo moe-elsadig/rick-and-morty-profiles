@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rick-and-morty-profiles.vercel.app/
+
+# Sitemaps
+Sitemap: https://rick-and-morty-profiles.vercel.app/sitemap.xml

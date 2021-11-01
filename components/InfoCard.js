@@ -61,14 +61,20 @@ function InfoCard({ data, type }) {
       <div className="grid grid-cols-2 overflow-hidden items-start">
         {data?.residents?.slice(0, 3)?.map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
-            <Image
-              data-testid={`profile-card-image`}
-              src={resident.replace("character", "character/avatar") + ".jpeg"}
-              layout="fill"
-              objectFit="contain"
-              className="rounded-full"
-              alt=""
-            />
+            {resident && (
+              <Image
+                placeholder="blur"
+                blurDataURL="/logo.png"
+                data-testid={`profile-card-image`}
+                src={
+                  resident.replace("character", "character/avatar") + ".jpeg"
+                }
+                layout="fill"
+                objectFit="contain"
+                className="rounded-full"
+                alt=""
+              />
+            )}
           </div>
         ))}
         {data.residents?.length > 3 && (
@@ -81,14 +87,20 @@ function InfoCard({ data, type }) {
       <div className="grid grid-cols-2 overflow-hidden items-start">
         {data?.characters?.slice(0, 3)?.map((resident, index) => (
           <div className="h-10 w-10 border-blue-200 relative" key={index}>
-            <Image
-              data-testid={`profile-card-image`}
-              src={resident.replace("character", "character/avatar") + ".jpeg"}
-              layout="fill"
-              objectFit="contain"
-              className="rounded-full"
-              alt=""
-            />
+            {resident && (
+              <Image
+                placeholder="blur"
+                blurDataURL="/logo.png"
+                data-testid={`profile-card-image`}
+                src={
+                  resident.replace("character", "character/avatar") + ".jpeg"
+                }
+                layout="fill"
+                objectFit="contain"
+                className="rounded-full"
+                alt=""
+              />
+            )}
           </div>
         ))}
         {data?.characters?.length > 3 && (

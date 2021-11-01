@@ -2,6 +2,7 @@ import CardList from "@/components/CardList";
 import CharacterList from "@/components/CharacterList";
 import Header from "@/components/Header";
 import Paginator from "@/components/Paginator";
+import PageFooter from "@/components/PageFooter";
 import SearchFilter from "@/components/SearchFilter";
 import SiteSections from "@/components/SiteSections";
 import Head from "next/head";
@@ -27,8 +28,9 @@ export default function Home({ data }) {
   useEffect(() => {
     async function getNewData() {
       // use the online REST API
+      let data;
       try {
-        const data = await (await fetch(currentPage)).json();
+        data = await (await fetch(currentPage)).json();
       } catch (error) {
         return;
       }
@@ -74,8 +76,9 @@ export default function Home({ data }) {
           ? episodesEndpoint
           : defaultEndpoint;
 
+      let data;
       try {
-        const data = await (await fetch(newEndpoint)).json();
+        data = await (await fetch(newEndpoint)).json();
       } catch (error) {
         return;
       }
@@ -143,6 +146,7 @@ export default function Home({ data }) {
           content="Rick & Morty Encyclopedia powere by the rickandmortyapi.com API"
         />
         <link rel="icon" href="/favicon.ico" />
+        <html lang="en" />
       </Head>
       <Header />
       <main className="flex flex-col min-h-screen h-full bg-gray-100 dark:bg-gray-900 max-w-screen-2xl m-auto items-start">
@@ -161,33 +165,7 @@ export default function Home({ data }) {
           />
         </div>
       </main>
-      <footer className="border-t bg-gray-100 dark:bg-gray-900 flex flex-row flex-wrap items-end">
-        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto">
-          Designed & Developed by{" "}
-          <a
-            href="https://moeabdalla.com/"
-            alt=""
-            target="_blank"
-            rel="noreferrer"
-            className="text-red-400 dark:text-red-500"
-          >
-            Moe.
-          </a>
-        </p>
-
-        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 mx-auto">
-          Powered by{" "}
-          <a
-            href="https://rickandmortyapi.com/"
-            alt=""
-            target="_blank"
-            rel="noreferrer"
-            className="text-red-400 dark:text-red-500"
-          >
-            RickAndMortyApi.com
-          </a>
-        </p>
-      </footer>
+      <PageFooter />
     </div>
   );
 }

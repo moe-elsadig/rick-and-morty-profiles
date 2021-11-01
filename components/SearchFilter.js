@@ -89,14 +89,14 @@ function SearchFilter({ type, addQuery = () => {} }) {
 
   let characterFieldsMarkup =
     type === "characters" ? (
-      <div className="px-5 rounded-2xl opacity-70 transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 hover:opacity-100 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
+      <div className="px-5 rounded-2xl transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
         <input
           type="search"
           value={characterName}
           onChange={(e) => {
             setCharacterName(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Name"
         />
         <input
@@ -105,7 +105,7 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setCharacterSpecies(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Species"
         />
         <input
@@ -114,7 +114,7 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setCharacterType(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Type"
         />
         <select
@@ -124,12 +124,11 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setCharacterStatus(e.target.value);
           }}
-          className={`text-lg  bg-gray-100 dark:bg-gray-900 text-center outline-none ${
+          className={`text-lg  bg-white dark:bg-gray-800 text-center outline-none ${
             characterStatus === ""
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
-          defaultValue=""
         >
           <option value="" disabled>
             Status
@@ -147,12 +146,11 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setCharacterGender(e.target.value);
           }}
-          className={`text-lg  bg-gray-100 dark:bg-gray-900 text-center outline-none ${
+          className={`text-lg  bg-white dark:bg-gray-800 text-center outline-none ${
             characterGender === ""
               ? "text-gray-400 dark:text-gray-400"
               : "text-yellow-500 dark:text-yellow-400"
           }`}
-          defaultValue=""
         >
           <option value="" disabled>
             Gender
@@ -165,14 +163,14 @@ function SearchFilter({ type, addQuery = () => {} }) {
         </select>
       </div>
     ) : type === "locations" ? (
-      <div className="px-5 rounded-2xl opacity-70 transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 hover:opacity-100 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
+      <div className="px-5 rounded-2xl transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
         <input
           type="search"
           value={locationName}
           onChange={(e) => {
             setLocationName(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Name"
         />
         <input
@@ -181,7 +179,7 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setLocationType(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Type"
         />
         <input
@@ -190,19 +188,19 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setLocationDimension(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Dimension"
         />
       </div>
     ) : type === "episodes" ? (
-      <div className="px-5 rounded-2xl opacity-70 transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 hover:opacity-100 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
+      <div className="px-5 rounded-2xl transition transform duration-200 ease-out hover:shadow-lg hover:scale-105 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex flex-row flex-wrap items-center justify-center">
         <input
           type="search"
           value={episodeName}
           onChange={(e) => {
             setEpisodeName(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Title"
         />
         <input
@@ -211,7 +209,7 @@ function SearchFilter({ type, addQuery = () => {} }) {
           onChange={(e) => {
             setEpisodeCode(e.target.value);
           }}
-          className="text-lg text-yellow-500 dark:text-yellow-400 bg-gray-100 dark:bg-gray-900 text-center outline-none"
+          className="text-lg text-yellow-500 dark:text-yellow-400 bg-white dark:bg-gray-800 text-center outline-none"
           placeholder="Episode"
         />
       </div>
