@@ -143,7 +143,7 @@ export default function Home({ data }) {
         <title>Rick & Morty Encyclopedia</title>
         <meta
           name="description"
-          content="Rick & Morty Encyclopedia powere by the rickandmortyapi.com API"
+          content="Rick & Morty Encyclopedia powered by the rickandmortyapi.com API"
         />
         <link rel="icon" href="/favicon.ico" />
         <html lang="en" />

@@ -11,5 +11,8 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
     // disable: process.env.NODE_ENV !== "production",
+    fallbacks: {
+      image: "/portal.gif",
+    },
   },
 });
