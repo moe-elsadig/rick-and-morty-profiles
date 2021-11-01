@@ -32,8 +32,9 @@ Navigate, browse and search the characters, locations and episodes of the hit sh
 - [x] Light and dark mode with switcher
 - [ ] Component tests (_- incomoplete_)
 - [x] Responsive UI
-- [ ] Sitemap generation
-- [ ] Client-side/PWA version
+- [x] Sitemap generation
+- [x] PWA features (caching, fallback page, theme,...)
+- [ ] Client-side version
 - [ ] Quiz game
 - [ ] Top-trumps-like game
 - [ ] Monthly Character votes and awards
