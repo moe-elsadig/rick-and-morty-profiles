@@ -61,11 +61,13 @@ function ProfileCard({ characterData, index }) {
           blurDataURL="/logo.png"
           data-testid={`profile-card-image-${index}`}
           src={characterData.image}
-          layout="fill"
-          objectFit="cover"
           className="rounded-lg"
           alt={`${characterData.name} profile image`}
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       )}
     </div>
   ) : (

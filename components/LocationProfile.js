@@ -93,11 +93,13 @@ function LocationProfile({ locationData }) {
                 src={
                   resident.replace("character", "character/avatar") + ".jpeg"
                 }
-                layout="fill"
-                objectFit="contain"
                 className="rounded-full"
                 alt=""
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "contain"
+                }} />
             )}
           </div>
           <p className="truncate text-gray-700 dark:text-gray-300  sm:max-w-full text-wrap">

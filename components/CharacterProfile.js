@@ -146,10 +146,12 @@ function CharacterProfile({ characterData }) {
           data-testid={`profile-card-image`}
           alt=""
           src={characterData.image}
-          layout="fill"
-          objectFit="cover"
           className="rounded-lg"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       )}
     </div>
   ) : (

@@ -69,11 +69,13 @@ function InfoCard({ data, type }) {
                 src={
                   resident.replace("character", "character/avatar") + ".jpeg"
                 }
-                layout="fill"
-                objectFit="contain"
                 className="rounded-full"
                 alt=""
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "contain"
+                }} />
             )}
           </div>
         ))}
@@ -95,11 +97,13 @@ function InfoCard({ data, type }) {
                 src={
                   resident.replace("character", "character/avatar") + ".jpeg"
                 }
-                layout="fill"
-                objectFit="contain"
                 className="rounded-full"
                 alt=""
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "contain"
+                }} />
             )}
           </div>
         ))}

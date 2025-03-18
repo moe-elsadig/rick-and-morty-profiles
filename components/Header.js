@@ -43,14 +43,15 @@ function Header({}) {
           <Image
             data-testid="Header-logo"
             src="/logo.png"
-            layout="fill"
-            objectFit="contain"
             className=""
             alt="Site logo"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "contain"
+            }} />
         </div>
       </Link>
-
       <Link href="/" passHref data-testid="Header-heading-link">
         <div className="flex-shrink pl-2 cursor-pointer">
           <h1
@@ -64,9 +65,7 @@ function Header({}) {
           </h1>
         </div>
       </Link>
-
       <div className="flex-grow"></div>
-
       <div className="flex-shrink-0 px-4">
         <button
           data-testid="Header-theme-button"

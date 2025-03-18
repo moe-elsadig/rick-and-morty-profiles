@@ -15,7 +15,14 @@ function _offline() {
         />
       </Head>
       <h1 className="text-3xl font-bold">Oh no...</h1>
-      <Image src="/portal.gif" height="300" width="300" />
+      <Image
+        src="/portal.gif"
+        height="300"
+        width="300"
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
       <h2 className="text-2l font-semibold italic">
         You are currently offline and this page is not cached
       </h2>
